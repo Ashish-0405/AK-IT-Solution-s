@@ -11,7 +11,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import GetQuote from "@/pages/GetQuote";
-import Industry from "@/pages/industry";
+// import Industry from "@/pages/industry";
 import path from "path";
 
 const Header = () => {

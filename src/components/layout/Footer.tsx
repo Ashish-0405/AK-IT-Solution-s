@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="h-12 w-12 rounded"><img src="/public/AK-iT.png"/> </div>
+              <div className="h-12 w-12 rounded"><img src="/AK-iT.png"/> </div>
               <span className="text-l font-bold mb-2"><span className="text-2xl">AK</span> IT Solution's</span>
             </div>
             <p className="text-muted-foreground text-sm">
@@ -31,7 +31,7 @@ const Footer = () => {
               <li><Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
               <li><Link to="/portfolio" className="text-muted-foreground hover:text-primary transition-colors">Portfolio</Link></li>
               <li><Link to="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link></li>
-              <li><Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
+              {/* <li><Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li> */}
             </ul>
           </div>
 
