@@ -45,8 +45,8 @@ const Contact = () => {
       title: "Email Support",
       description: "Get detailed help via email",
       details: [
-        "General: general@akitsolution.com",
-        "Support: manager@akitsolution.com",
+        "General: ashishnagar0405@gmail.com",
+        "Support: ak.nagar.0405@gmail.com",
         "Sales: sales@akitsolution.com",
       ],
       availability: "Response within 2 hours",
@@ -71,7 +71,7 @@ const Contact = () => {
       city: "Ahmedabad",
       address: "306 Golden Square Kalyan Chowk, Ahmedabad-382350 Gujarat India",
       phone: "+91 9016452340",
-      email: "sf@techcorp.com",
+      email: "ashishnagar0405@gmail.com",
       type: "Headquarters",
     },
   ];
@@ -86,6 +86,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    toast.success("Submitting form...");
 
     console.log("Form Data=====================>", formData);
     await emailjs
@@ -93,7 +94,7 @@ const Contact = () => {
         "service_r4gp5ie",
         "template_csch1zs",
         formData,
-        "RXgBtTzMg_WkvmdQP"
+        "9Skjvs8fXr6vNJqTW"
       )
       .then(
         () => {
@@ -199,6 +200,7 @@ const Contact = () => {
                               "_blank"
                             );
                           } else if (method.title === "Email Support") {
+                            // toast.success("Opening email client...");
                             window.open(
                               "https://mail.google.com/mail/?view=cm&fs=1&to=ak.nagar.0405@gmail.com&su=Support%20Request&body=Hello%2C%0D%0A",
                               "_blank"

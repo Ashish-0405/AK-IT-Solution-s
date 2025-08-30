@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Code, Smartphone, Cloud, HeadphonesIcon, CheckCircle, ArrowRight, Database } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -176,12 +177,19 @@ const Services = () => {
               Let's discuss your project requirements and create a solution that drives your business forward.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="text-primary hover:bg-white hover:text-primary">
+              <Button size="lg" variant="secondary" className="text-primary hover:bg-white hover:text-primary" onClick={() => {
+                                window.open(
+                                  "https://calendly.com/ak-nagar-0405/30min",
+                                  "_blank"
+                                );
+                              }}>
                 Schedule Consultation
               </Button>
+              <Link to="/portfolio">
               <Button size="lg" variant="secondary" className="text-primary hover:bg-white hover:text-primary">
                 View Portfolio
               </Button>
+              </Link>
             </div>
           </div>
         </section>

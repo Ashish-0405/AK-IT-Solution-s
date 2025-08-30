@@ -9,13 +9,14 @@ import { toast } from "sonner";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
     lastName: "",
     email: "",
     title: "Lead",
     phone: "",
     message: "",
   });
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -27,20 +28,21 @@ const ContactSection = () => {
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
+    setIsSending(true);
     console.log("Form Submitted:", formData);
    
      await emailjs
       .send(
-        "service_r4gp5ie",
-        "template_csch1zs",
+        "service_iblabra",
+        "template_u0xf7a4",
         formData,
-        "RXgBtTzMg_WkvmdQP"
+        "ro7h8yxXpo4ozvg8K"
       )
       .then(
         () => {
           toast.success("✅ Thanks for reaching out! We'll get back to you shortly.")
           setFormData({
-            name: "",
+            firstName: "",
             lastName: "",
             email: "",
             title: "Lead",
@@ -50,8 +52,11 @@ const ContactSection = () => {
         },
         (error) => {
           console.log("Error=========>", error);
-        }
-      );
+        },
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   return (
@@ -77,8 +82,8 @@ const ContactSection = () => {
                   <div>
                     <label className="text-sm font-medium mb-2 block">First Name</label>
                     <Input
-                      name="name"
-                      value={formData.name}
+                      name="firstName"
+                      value={formData.firstName}
                       onChange={handleChange}
                       placeholder="Enter your First Name"
                     />
@@ -127,8 +132,8 @@ const ContactSection = () => {
                   />
                 </div>
                 
-                <Button className="w-full" size="lg" type="submit">
-                  Send Message
+                <Button className="w-full" size="lg" type="submit" disabled={isSending}>
+                  {isSending ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>

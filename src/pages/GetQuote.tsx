@@ -12,9 +12,11 @@ const GetQuote = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone:"",
     service: "",
     message: ""
   })
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,18 +24,20 @@ const GetQuote = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setIsSending(true);
 
     await emailjs
       .send(
-        "service_r4gp5ie",
-        "template_csch1zs",
+        "service_iblabra",
+        "template_s3wfhp9",
         formData,
-        "RXgBtTzMg_WkvmdQP"
+        "ro7h8yxXpo4ozvg8K"
       ).then(() => {
         toast.success("✅ Thanks for reaching out! We'll get back to you shortly.")
         setFormData({
           name: "",
           email: "",
+          phone:"",
           service: "",
           message: ""
         })
@@ -41,14 +45,16 @@ const GetQuote = () => {
         (error) => {
           console.log("Error=========>", error);
         }
-      )
+      ).finally(() => {
+        setIsSending(false);
+      });
   }
 
   return (
-    <div className="container mx-auto px-2 py-2">
+    <div className="container mx-auto px-2">
       <Card className="max-w-4xl mx-auto">
         <CardContent>
-          <form className="space-y-6 py-4" onSubmit={handleSubmit}>
+          <form className="space-y-2 py-2" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label htmlFor="name">Name</label>
               <Input id="name" placeholder="Enter your name" onChange={handleChange} value={formData.name} name="name" required/>
@@ -56,6 +62,10 @@ const GetQuote = () => {
             <div className="space-y-2">
               <label htmlFor="email">Email</label>
               <Input id="email" type="email" placeholder="Enter your email" onChange={handleChange} value={formData.email} name="email" required />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="phone">Phone</label>
+              <Input id="phone" type="tel" placeholder="Enter your phone number" onChange={handleChange} value={formData.phone} name="phone" required />
             </div>
             <div className="space-y-2">
               <label htmlFor="service">Service</label>
@@ -84,7 +94,9 @@ const GetQuote = () => {
                 value={formData.message}
                 name="message" />
             </div>
-            <Button type="submit" size="lg" className="w-full">Get a Quote</Button>
+            <Button type="submit" size="lg" className="w-full" disabled={isSending}>
+              {isSending ? "Sending..." : "Get a Quote"}
+            </Button>
           </form>
         </CardContent>
       </Card>

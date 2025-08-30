@@ -219,7 +219,7 @@ const uploadToCloudinary = async (file: File): Promise<string> => {
         'service_r4gp5ie',
         'template_f6eelja',
         templateParams,
-        'RXgBtTzMg_WkvmdQP'
+        '9Skjvs8fXr6vNJqTW'
       );
 
       console.log('Email sent successfully!', response.status, response.text);
