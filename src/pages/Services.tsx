@@ -131,11 +131,12 @@ const Services = () => {
                           ))}
                         </div>
                       </div>
-                      
-                      <Button className="w-full group/btn">
+                      <Link to="/contact">
+                      <Button className="w-full group/btn mt-4">
                         Get Started
                         <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
+                      </Link>
                     </CardContent>
                   </Card>
                 );

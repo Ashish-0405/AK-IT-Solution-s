@@ -78,8 +78,8 @@ const Contact = () => {
 
   const departments = [
     { name: "General Inquiry", icon: Users },
-    { name: "Technical Support", icon: Headphones },
-    { name: "Sales & Partnerships", icon: Globe },
+    { name: "Support", icon: Headphones },
+    { name: "Sales", icon: Globe },
     { name: "Careers", icon: Users },
     { name: "Press & Media", icon: MessageSquare },
   ];
@@ -323,7 +323,7 @@ const Contact = () => {
                                 })
                               }
                             >
-                              <IconComponent className="h-4 w-4 mr-2" />
+                              <IconComponent className="h-4 w-4" />
                               <span className="text-sm">{dept.name}</span>
                             </Button>
                           );
@@ -485,7 +485,7 @@ const Contact = () => {
                         <div className="space-y-2 text-sm text-muted-foreground">
                           <div className="flex justify-between">
                             <span>Monday - Friday: </span>&nbsp;&nbsp;
-                            <span>9:00 AM - 7:00 PM IST</span>
+                            <span className="">9:00 AM - 7:00 PM IST</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Saturday:</span>&nbsp;&nbsp;
