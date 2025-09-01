@@ -14,7 +14,7 @@ const WhatsAppButton = () => {
       className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition transform hover:scale-110 z-50"
       aria-label="Chat on WhatsApp"
     >
-      <FaWhatsapp className="w-7 h-7" /> {/* ✅ Real WhatsApp Icon */}
+      <FaWhatsapp className="w-5 h-5" /> {/* ✅ Real WhatsApp Icon */}
     </a>
   );
 };

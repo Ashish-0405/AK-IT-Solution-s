@@ -11,7 +11,7 @@ import Careers from "./pages/Careers";
 // import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import Industry from "./pages/industry";
+import Industry from "./pages/Industry";
 import WhatsAppButton from "./pages/whatsappButton";
 
 const queryClient = new QueryClient();
