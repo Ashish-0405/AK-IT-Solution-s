@@ -86,6 +86,7 @@ const ContactSection = () => {
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder="Enter your First Name"
+                      required
                     />
                   </div>
                   <div>
@@ -95,6 +96,7 @@ const ContactSection = () => {
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder="Enter your Last Name"
+                      required
                     />
                   </div>
                 </div>
@@ -107,6 +109,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter your Email"
+                    required
                   />
                 </div>
                 
@@ -118,6 +121,7 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+91 98765 43210"
+                    required
                   />
                 </div>
                 

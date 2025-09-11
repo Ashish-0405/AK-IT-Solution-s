@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Industry from "./pages/Industry";
 import WhatsAppButton from "./pages/whatsappButton";
+import AdvancedChatbot from "./pages/AdvancedChatbot";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/industry" element={<Industry />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <AdvancedChatbot/>
       </BrowserRouter>
        <WhatsAppButton/>
     </TooltipProvider>

@@ -21,7 +21,13 @@ const Header = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const navItems = [
+  interface NavItem {
+    name: string;
+    path: string;
+    dropdown?: { name: string; path: string }[];
+  }
+
+  const navItems: NavItem[] = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     {
@@ -88,9 +94,11 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Dialog>
-              <DialogTrigger asChild>
-                <Button>Get Quote</Button>
-              </DialogTrigger>
+              <span className="cursor-pointer">
+                <DialogTrigger asChild>
+                  <Button variant="quote">Get Quote</Button>
+                </DialogTrigger>
+              </span>
               <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
                   <DialogTitle className="text-2xl mb-2 text-center underline">Get a Quote</DialogTitle>
@@ -144,9 +152,11 @@ const Header = () => {
                 </div>
               ))}
                <Dialog>
-                <DialogTrigger asChild>
-                  <Button className="w-full mt-4">Get Quote</Button>
-                </DialogTrigger>
+                <span className="cursor-pointer">
+                  <DialogTrigger asChild>
+                    <Button className="w-full mt-4">Get Quote</Button>
+                  </DialogTrigger>
+                </span>
                 <DialogContent className="sm:max-w-[425px]">
                   <DialogHeader>
                     <DialogTitle className="text-2xl mb-2 text-center underline">Get a Quote</DialogTitle>

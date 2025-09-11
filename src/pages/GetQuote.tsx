@@ -94,7 +94,7 @@ const GetQuote = () => {
                 value={formData.message}
                 name="message" />
             </div>
-            <Button type="submit" size="lg" className="w-full" disabled={isSending}>
+            <Button type="submit" size="lg" variant="quote" className="w-full" disabled={isSending}>
               {isSending ? "Sending..." : "Get a Quote"}
             </Button>
           </form>

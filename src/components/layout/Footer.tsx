@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t mt-12 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2020 AK IT Solution's. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p>&copy; 2020 AK IT Solution's. All rights reserved.</p>
         </div>
       </div>
     </footer>
