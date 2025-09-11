@@ -195,7 +195,7 @@ const AdvancedChatbot: React.FC = () => {
       <div className="fixed bottom-4 right-4 w-96 h-[500px] bg-white rounded-lg shadow-2xl flex flex-col font-sans z-50 max-sm:w-72 max-sm:h-[400px]">
         <div className="bg-[#197aa4] text-white p-4 rounded-t-lg flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <span><img src="/public/AK1-version-22.jpg" className="w-10 h-10 rounded-full" alt="" /></span>
+            {/* <span><img src="/public/AK1-version-22.jpg" className="w-10 h-10 rounded-full" alt="" /></span> */}
             {/* <FaRobot className="mr-3 text-2xl" /> */}
             <h2 className="text-lg font-medium max-sm:text-xs">
               <span className="text-2xl max-sm:text-base">AK</span> IT Solutions Assistant
