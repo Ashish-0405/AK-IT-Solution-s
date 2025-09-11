@@ -29,8 +29,8 @@ const AdvancedChatbot: React.FC = () => {
     Company Information:
     - Name: AK IT Solutions
     - Contact: +91 9016452340
-    - Email: info@akitsolutions.in
-    - Website: www.akitsolutions.in
+    - Email: career@akitsol.com
+    - Website: www.akitsol.com
     
     Services Offered:
     - Website Design & Development
