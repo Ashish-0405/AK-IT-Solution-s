@@ -32,7 +32,7 @@ export const knowledgeBase = {
   contact: {
     keywords: ["contact", "phone", "email", "address"],
     response:
-      "You can reach us at: \n- Email: info@akitsolutions.com \n- Phone: +1 (234) 567-890. \nOr visit our contact page at '/contact'.",
+      "You can reach us at: \n- Email: sales@akitsol.com \n- Phone: +91 9016452340. \nOr visit our contact page at '/contact'.",
   },
   portfolio: {
     keywords: ["work", "project", "portfolio"],

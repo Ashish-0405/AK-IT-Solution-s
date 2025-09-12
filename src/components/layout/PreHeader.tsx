@@ -64,11 +64,11 @@ const PreHeader = () => {
             </div>
             <div className="flex items-center space-x-1">
               <a
-                href="mailto:ak.nagar.0405@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@akitsol.com&su=Support%20Request&body=Hello%2C%0D%0A"
                 className="text-sm flex hover:text-gray-300"
               >
                 <Mail size={20} className="animate-blink" />
-                <span className="animate-blink max-sm:hidden font-semibold ml-2">ak.nagar.0405@gmail.com</span>
+                <span className="animate-blink max-sm:hidden font-semibold ml-2">sales@akitsol.com</span>
               </a>
             </div>
           </div>

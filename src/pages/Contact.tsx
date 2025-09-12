@@ -45,9 +45,8 @@ const Contact = () => {
       title: "Email Support",
       description: "Get detailed help via email",
       details: [
-        "General: ashishnagar0405@gmail.com",
-        "Support: ak.nagar.0405@gmail.com",
-        "Sales: sales@akitsolution.com",
+        "Hr: career.akitsol@gmail.com",
+        "Sales: sales@akitsol.com",
       ],
       availability: "Response within 2 hours",
       badge: "Priority Support",
@@ -71,7 +70,7 @@ const Contact = () => {
       city: "Ahmedabad",
       address: "306 Golden Square Kalyan Chowk, Ahmedabad-382350 Gujarat India",
       phone: "+91 9016452340",
-      email: "ashishnagar0405@gmail.com",
+      email: "sales@akitsol.com",
       type: "Headquarters",
     },
   ];
@@ -202,7 +201,7 @@ const Contact = () => {
                           } else if (method.title === "Email Support") {
                             // toast.success("Opening email client...");
                             window.open(
-                              "https://mail.google.com/mail/?view=cm&fs=1&to=ak.nagar.0405@gmail.com&su=Support%20Request&body=Hello%2C%0D%0A",
+                              "https://mail.google.com/mail/?view=cm&fs=1&to=sales@akitsol.com&su=Support%20Request&body=Hello%2C%0D%0A",
                               "_blank"
                             );
                           }

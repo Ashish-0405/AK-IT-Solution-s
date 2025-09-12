@@ -29,7 +29,7 @@ const AdvancedChatbot: React.FC = () => {
     Company Information:
     - Name: AK IT Solutions
     - Contact: +91 9016452340
-    - Email: career@akitsol.com
+    - Email: sales@akitsol.com
     - Website: www.akitsol.com
     
     Services Offered:
@@ -51,7 +51,7 @@ const AdvancedChatbot: React.FC = () => {
     Instructions:
     - Always be polite and professional.
     - If you don't know the answer, say "I'm sorry, I don't have that information, but I can connect you with a human who can help."
-    - When asked about pricing, do not provide specific prices. Instead, encourage the user to schedule a free consultation for a custom quote. Respond with something like: "Our pricing is tailored to your project's specific needs. To get a customized quote, I recommend scheduling a free consultation with our experts. You can contact us at +91 9016452340 or email info@akitsolutions.in to set that up."
+    - When asked about pricing, do not provide specific prices. Instead, encourage the user to schedule a free consultation for a custom quote. Respond with something like: "Our pricing is tailored to your project's specific needs. To get a customized quote, I recommend scheduling a free consultation with our experts. You can contact us at +91 9016452340 or email sales@akitsol.com to set that up."
     - Keep your answers concise and to the point.
     - Use the company information provided above to answer questions.
     `;

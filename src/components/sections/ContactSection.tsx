@@ -154,7 +154,7 @@ const ContactSection = () => {
                   <div>
                     <h3 className="font-semibold mb-2">Office Address</h3>
                     <p className="text-muted-foreground">
-                      306 Golden Square<br />
+                      <span className="text-primary font-medium">306 Golden Square,</span> <br />
                       Nr.Kalyan Farm, <br />
                       Nikol, Ahmedabad-382350 <br/>
                       Gujarat, India
@@ -173,7 +173,8 @@ const ContactSection = () => {
                   <div>
                     <h3 className="font-semibold mb-2">Phone Numbers</h3>
                     <p className="text-muted-foreground">
-                      Contact Us: +91 90164 52340
+                      <span className="text-primary font-medium">CEO & Co-Founder:</span> +91 90164 52340<br />
+                      <span className="text-primary font-medium">HR & Support:</span> +91 79904 74629
                     </p>
                   </div>
                 </div>
@@ -189,9 +190,8 @@ const ContactSection = () => {
                   <div>
                     <h3 className="font-semibold mb-2">Email Addresses</h3>
                     <p className="text-muted-foreground">
-                      General: info@techcorp.com<br />
-                      Support: support@techcorp.com<br />
-                      Sales: sales@techcorp.com
+                      <span className="text-primary font-medium">HR & Support:</span> career.akitsol@gmail.com<br />
+                      <span className="text-primary font-medium">Sales:</span> sales@akitsol.com
                     </p>
                   </div>
                 </div>
