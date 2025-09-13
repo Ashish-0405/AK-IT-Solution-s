@@ -14,31 +14,37 @@ import NotFound from "./pages/NotFound";
 import Industry from "./pages/Industry";
 import WhatsAppButton from "./pages/whatsappButton";
 import AdvancedChatbot from "./pages/AdvancedChatbot";
+import PreHeader from "./components/layout/PreHeader";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:serviceId" element={<Services />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/careers" element={<Careers />} />
-          {/* <Route path="/blog" element={<Blog />} /> */}
-          <Route path="/contact" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="/industry" element={<Industry />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <AdvancedChatbot/>
+        <div className="flex flex-col min-h-screen">
+          <PreHeader />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:serviceId" element={<Services />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/careers" element={<Careers />} />
+              {/* <Route path="/blog" element={<Blog />} /> */}
+              <Route path="/contact" element={<Contact />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="/industry" element={<Industry />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </div>
+        <AdvancedChatbot />
       </BrowserRouter>
-       <WhatsAppButton/>
+      <WhatsAppButton />
     </TooltipProvider>
   </QueryClientProvider>
 );

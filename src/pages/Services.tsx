@@ -5,6 +5,18 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Code, Smartphone, Cloud, HeadphonesIcon, CheckCircle, ArrowRight, Database } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+
+const cardVariants = {
+  initial: { opacity: 0, y: 50 },
+  animate: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+    },
+  }),
+};
 
 const Services = () => {
   const services = [

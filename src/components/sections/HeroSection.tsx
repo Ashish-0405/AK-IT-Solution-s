@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Smartphone, Cloud, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+import Animation3D from "../ui/Animation3D";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <Animation3D />
       {/* Background Gradient */}
       <div 
         className="absolute inset-0 opacity-90"
@@ -13,16 +15,16 @@ const HeroSection = () => {
       
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
+        <div className="absolute top-20 left-10 p-4 bg-white/10 rounded-lg backdrop-blur-sm max-sm:top-16">
           <Code className="h-8 w-8 text-white" />
         </div>
         <div className="absolute top-40 right-20 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
           <Smartphone className="h-8 w-8 text-white" />
         </div>
-        <div className="absolute bottom-40 left-20 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
+        <div className="absolute bottom-40 left-20 p-4 bg-white/10 rounded-lg backdrop-blur-sm max-sm:left-12">
           <Cloud className="h-8 w-8 text-white" />
         </div>
-        <div className="absolute bottom-20 right-10 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
+        <div className="absolute bottom-20 right-10 p-4 bg-white/10 rounded-lg backdrop-blur-sm max-sm:bottom-36">
           <Shield className="h-8 w-8 text-white" />
         </div>
       </div>
@@ -65,7 +67,7 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 py-2">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold">500+</div>
               <div className="text-blue-200 text-sm">Projects Completed</div>

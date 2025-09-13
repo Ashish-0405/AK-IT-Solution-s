@@ -152,10 +152,10 @@ const AdvancedChatbot: React.FC = () => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-4 right-4 bg-[#197aa4] text-white p-4 rounded-full shadow-2xl hover:bg-[#197aa4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#197aa4] transition-transform transform hover:scale-110 z-50"
+        className="fixed bottom-4 right-4 max-sm:bottom-1 max-sm:right-1 bg-[#197aa4] text-white p-3 rounded-full shadow-2xl hover:bg-[#197aa4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#197aa4] transition-transform transform hover:scale-110 z-50"
         aria-label="Open chat"
       >
-        <FaCommentDots className="text-3xl" />
+        <FaCommentDots className="text-3xl"/>
       </button>
     );
   }
@@ -206,7 +206,7 @@ const AdvancedChatbot: React.FC = () => {
             className="text-white hover:text-gray-200 focus:outline-none"
             aria-label="Close chat"
           >
-            <FaTimes className="text-xl max-sm:text-lg hover:cursor-pointer" />
+            <FaTimes className="text-xl max-sm:text-lg hover:cursor-pointer"/>
           </button>
         </div>
         <div
@@ -218,20 +218,20 @@ const AdvancedChatbot: React.FC = () => {
               key={index}
               className={`flex items-end ${
                 msg.sender === "user" ? "justify-end" : "justify-start"
-              } mb-4 animate-fade-in`}
+              } mb-2 animate-fade-in`}
             >
               {msg.sender === "bot" && (
                 <FaRobot className="text-3xl mr-2 text-gray-400" />
               )}
               <div
-                className={`rounded-lg px-4 py-2 max-w-xs shadow-md ${
+                className={`rounded-lg px-3 py-1 max-w-xs shadow-md ${
                   msg.sender === "user"
-                    ? "bg-[#197aa4] text-white rounded-br-none"
+                    ? "bg-[#197aa4] text-white rounded-br-none max-sm:text-sm font-medium"
                     : "bg-gray-200 text-gray-800 rounded-bl-none"
                 }`}
               >
                 {msg.sender === "bot" ? (
-                  <div className="prose prose-sm">
+                  <div className="prose prose-sm text-sm font-medium">
                     <ReactMarkdown>{msg.text}</ReactMarkdown>
                   </div>
                 ) : (
@@ -239,14 +239,14 @@ const AdvancedChatbot: React.FC = () => {
                 )}
               </div>
               {msg.sender === "user" && (
-                <FaUserCircle className="text-3xl ml-2 text-[#197aa4]" />
+                <FaUserCircle className="text-xl ml-1 text-[#197aa4]" />
               )}
             </div>
           ))}
           {loading && (
             <div className="flex items-end justify-start mb-4 animate-fade-in">
               <FaRobot className="text-3xl mr-2 text-gray-400" />
-              <div className="rounded-lg px-4 py-3 bg-gray-200 text-gray-800 rounded-bl-none shadow-md ">
+              <div className="rounded-lg px-3 py-2 bg-gray-200 text-gray-800 rounded-bl-none shadow-md ">
                 <div className="flex items-center justify-center">
                   <span className="typing-dot"></span>
                   <span className="typing-dot"></span>
@@ -260,14 +260,14 @@ const AdvancedChatbot: React.FC = () => {
           <div className="flex space-x-2">
             <input
               type="text"
-              className="flex-1 border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#197aa4]"
+              className="flex-1 font-medium border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#197aa4]"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSend(input)}
               placeholder="Type a message..."
             />
-            <button
-              className="bg-[#197aa4] text-white px-4 rounded-lg hover:bg-[#197aa4] transition-colors disabled:bg-[#197aa4]"
+           <button
+              className="bg-[#197aa4] text-white px-4 rounded-lg hover:bg-[#197aa4] transition-colors disabled:bg-[#197aa4] btn-3d btn-cyber"
               onClick={() => handleSend(input)}
               disabled={loading || !input.trim()}
             >

@@ -48,8 +48,8 @@ const Header = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="h-16 w-16 rounded"><img src="/AK-iT.png" alt="" /></div>
-            <span className="text-l font-semibold mb-2"><span className="font-bold text-xl">AK</span> IT Solution's</span>
+            <div className="h-16 w-16 rounded max-sm:h-12 max-sm:w-12"><img src="/AK-iT.png" alt="" /></div>
+            <span className="text-l font-semibold mb-2 max-sm:text-base"><span className="font-bold text-xl max-sm:text-lg">AK</span> IT Solution's</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -123,12 +123,12 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden border-t bg-background">
-            <div className="py-4 space-y-4">
+            <div className="py-2">
               {navItems.map((item) => (
                 <div key={item.name}>
                   <Link
                     to={item.path}
-                    className={`block py-2 text-sm font-medium ${
+                    className={`block py-2 text-sm font-bold ${
                       isActive(item.path) ? "text-primary" : "text-foreground/80"
                     }`}
                     onClick={() => setIsMenuOpen(false)}
