@@ -14,7 +14,7 @@ const HeroSection = () => {
       />
       
       {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 p-4 bg-white/10 rounded-lg backdrop-blur-sm max-sm:top-16">
           <Code className="h-8 w-8 text-white" />
         </div>
@@ -27,7 +27,7 @@ const HeroSection = () => {
         <div className="absolute bottom-20 right-10 p-4 bg-white/10 rounded-lg backdrop-blur-sm max-sm:bottom-36">
           <Shield className="h-8 w-8 text-white" />
         </div>
-      </div>
+      </div> */}
 
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto space-y-8">

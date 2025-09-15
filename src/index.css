@@ -114,3 +114,73 @@ All colors MUST be HSL.
   background-color: hsl(var(--primary)) !important;
   color: hsl(var(--primary-foreground)) !important;
 }
+
+/* ... existing code ... */
+
+/*Service Sections Embla Carousel Styles */
+.embla {
+  position: relative;
+  padding: 20px 0;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  will-change: transform;
+  margin-left: -1rem;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .embla__slide {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla__slide {
+    flex: 0 0 25%;
+  }
+}
+
+.embla__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: hsl(var(--primary) / 0.8);
+  backdrop-filter: blur(5px);
+  color: hsl(var(--primary-foreground));
+  transition: all 0.2s ease-in-out;
+  border: 1px solid hsl(var(--primary-glow) / 0.5);
+  box-shadow: 0 0 15px hsl(var(--primary-glow) / 0.5);
+}
+
+.embla__button:hover {
+  background-color: hsl(var(--primary));
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 25px hsl(var(--primary-glow));
+}
+
+
+.embla__button--prev {
+  left: -1rem;
+}
+
+.embla__button--next {
+  right: -1rem;
+}

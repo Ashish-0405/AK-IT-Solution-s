@@ -256,18 +256,18 @@ const AdvancedChatbot: React.FC = () => {
             </div>
           )}
         </div>
-        <div className="p-4 border-t bg-white">
-          <div className="flex space-x-2">
+        <div className="p-2 border-t bg-white">
+          <div className="flex items-center space-x-2">
             <input
               type="text"
-              className="flex-1 font-medium border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#197aa4]"
+             className="flex-1 min-w-0 font-medium border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#197aa4]"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSend(input)}
               placeholder="Type a message..."
             />
            <button
-              className="bg-[#197aa4] text-white px-4 rounded-lg hover:bg-[#197aa4] transition-colors disabled:bg-[#197aa4] btn-3d btn-cyber"
+              className="flex-shrink-0 bg-[#197aa4] text-white px-4 py-3 rounded-lg hover:bg-[#197aa4] transition-colors disabled:bg-[#197aa4] btn-3d btn-cyber"
               onClick={() => handleSend(input)}
               disabled={loading || !input.trim()}
             >
