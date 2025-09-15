@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Rahul Mehta",
+    "content": "AK IT Solution's built our e-commerce website with a modern and responsive design. The team delivered exactly what we envisioned.",
+    "rating": 5,
+    "position": "Founder",
+    "companyName": "Delhi Fashions",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Priya Nair",
+    "content": "They developed our Android app seamlessly with great performance. The support after delivery is also excellent.",
+    "rating": 4,
+    "position": "Product Manager",
+    "companyName": "GoRide Cabs",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Arjun Reddy",
+    "content": "Migrating our data to the cloud was smooth and hassle-free. Their expertise saved us a lot of time and cost.",
+    "rating": 3,
+    "position": "CTO",
+    "companyName": "Bangalore Tech Hub",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Sneha Kapoor",
+    "content": "We had constant security breaches before, but after their cybersecurity services, our systems are fully protected.",
+    "rating": 4,
+    "position": "IT Head",
+    "companyName": "Mumbai Finance Corp",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Vikram Joshi",
+    "content": "Their SEO and social media strategies helped our startup grow from scratch to thousands of leads in just months.",
+    "rating": 4,
+    "position": "CEO",
+    "companyName": "Hyderabad Startups",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Ananya Sharma",
+    "content": "AK IT Solution's custom ERP software streamlined our operations and increased productivity by 40%.",
+    "rating": 4,
+    "position": "Operations Manager",
+    "companyName": "Kolkata Manufacturing Ltd",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Rohan Deshmukh",
+    "content": "The app interface they designed is clean, user-friendly, and perfectly aligned with our brand.",
+    "rating": 5,
+    "position": "Design Lead",
+    "companyName": "Pune EdTech Labs",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Neha Iyer",
+    "content": "Their consulting team guided us in implementing the right tech stack for scaling our business smoothly.",
+    "rating": 4,
+    "position": "Managing Director",
+    "companyName": "Ahmedabad Traders",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Siddharth Malhotra",
+    "content": "The analytics dashboards gave us real-time insights into sales and customer behavior, which boosted our revenue.",
+    "rating": 5,
+    "position": "Business Analyst",
+    "companyName": "Chennai Retail Pvt Ltd",
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Kavya Menon",
+    "content": "24/7 support from their team ensured zero downtime for our critical operations. Truly reliable!",
+    "rating": 5,
+    "position": "System Administrator",
+    "companyName": "Jaipur Logistics",
+    "isUserSubmitted": false
+  }
+]
