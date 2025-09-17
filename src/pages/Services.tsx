@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Code, Smartphone, Cloud, HeadphonesIcon, CheckCircle, ArrowRight, Database } from "lucide-react";
+import { Code, Smartphone, Cloud, HeadphonesIcon, CheckCircle, ArrowRight, Database, Layers, Cog } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 
@@ -26,7 +26,7 @@ const Services = () => {
       description: "Custom web applications built with modern technologies",
       features: ["Responsive Design", "SEO Optimized", "Performance Focused", "Secure & Scalable"],
       technologies: ["React", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
-      pricing: "Starting from RS : 9,999"
+      pricing: "Contact for Quote"
     },
     {
       icon: Smartphone,
@@ -34,7 +34,7 @@ const Services = () => {
       description: "Native and cross-platform mobile applications",
       features: ["Native iOS/Android", "Cross-Platform", "UI/UX Design", "App Store Optimization"],
       technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
-      pricing: "Starting from RS : 49,999"
+      pricing: "Contact for Quote"
     },
     {
       icon: Cloud,
@@ -42,15 +42,31 @@ const Services = () => {
       description: "Comprehensive cloud infrastructure and migration services",
       features: ["AWS/Azure/GCP", "Migration Services", "DevOps Automation", "Cost Optimization"],
       technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "Jenkins"],
-      pricing: "Starting from RS : 39,999"
+       pricing: "Contact for Quote"
     },
     {
       icon: Database,
-      title: "CRM Software",
+      title: "CRM Management Software",
       description: "Customer Relationship Management solutions to streamline sales, marketing, and support",
       features: ["Lead Management", "Sales Automation", "Customer Analytics", "Integration with Email & ERP"],
       technologies: ["Salesforce API", "MongoDB", "Express.js", "React", "Node.js"],
-      pricing: "Starting from RS : 99,999"
+      pricing: "Contact for Quote"
+    },
+    {
+      icon: Layers,
+      title: "ERP Software",
+      description: "Integrate and manage core business processes with a custom ERP solution.",
+      features: ["Supply Chain Management", "Financial Management", "Human Resources", "Manufacturing"],
+      technologies: ["SAP", "Oracle", "Microsoft Dynamics", "Custom"],
+      pricing: "Contact for Quote"
+    },
+    {
+      icon: Cog,
+      title: "Customize CRM Management",
+      description: "Tailor your CRM to your exact business needs for maximum efficiency.",
+      features: ["Custom Modules", "Automated Workflows", "3rd-Party Integrations", "Advanced Reporting"],
+      technologies: ["Salesforce", "Zoho CRM", "HubSpot", "Custom APIs"],
+      pricing: "Contact for Quote"
     },
     {
       icon: HeadphonesIcon,
@@ -58,7 +74,7 @@ const Services = () => {
       description: "24/7 technical support and system maintenance",
       features: ["24/7 Support", "System Monitoring", "Preventive Maintenance", "Emergency Response"],
       technologies: ["Monitoring Tools", "Ticketing Systems", "Remote Access", "Security Tools"],
-      pricing: "Starting from 1,200/month"
+      pricing: "Free Technical Support"
     }
   ];
 

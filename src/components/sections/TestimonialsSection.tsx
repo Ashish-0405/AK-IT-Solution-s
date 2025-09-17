@@ -12,7 +12,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Star, Quote, Send, X, Pencil } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import testimonialsData from "@/data/testimonials.json";
 
 const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
@@ -63,23 +62,34 @@ const swipePower = (offset: number, velocity: number) => {
 const TestimonialsSection = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   const isMobile = useMediaQuery("(max-width: 767px)");
-  const [testimonials, setTestimonials] = useState(() => {
-    try {
-      const savedTestimonials = window.localStorage.getItem("testimonials");
-      if (savedTestimonials) {
-        return JSON.parse(savedTestimonials);
-      }
-    } catch (error) {
-      console.error("Error reading from localStorage", error);
-    }
-    return testimonialsData;
-  });
+  const [testimonials, setTestimonials] = useState<any[]>([]);
 
   useEffect(() => {
-    try {
-      window.localStorage.setItem("testimonials", JSON.stringify(testimonials));
-    } catch (error) {
-      console.error("Error writing to localStorage", error);
+    const fetchTestimonials = async () => {
+      try {
+        const response = await fetch("/data/testimonials.json");
+        const data = await response.json();
+        const savedTestimonials = window.localStorage.getItem("testimonials");
+        if (savedTestimonials) {
+          setTestimonials(JSON.parse(savedTestimonials));
+        } else {
+          setTestimonials(data);
+        }
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  useEffect(() => {
+    if (testimonials.length > 0) {
+      try {
+        window.localStorage.setItem("testimonials", JSON.stringify(testimonials));
+      } catch (error) {
+        console.error("Error writing to localStorage", error);
+      }
     }
   }, [testimonials]);
 

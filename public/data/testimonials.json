@@ -1,0 +1,72 @@
+[
+  {
+    "name": "John Doe",
+    "position": "CEO, TechCorp",
+    "content": "This service is amazing! It has transformed our business.",
+    "rating": 5,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Jane Smith",
+    "position": "Marketing Head, Innovate LLC",
+    "content": "Incredible results and a fantastic team to work with.",
+    "rating": 5,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Peter Jones",
+    "position": "CTO, Solutions Inc.",
+    "content": "A game-changer for our company. Highly recommended.",
+    "rating": 5,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Mary Johnson",
+    "position": "Product Manager, Appify",
+    "content": "The best decision we made this year. The ROI is impressive.",
+    "rating": 5,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "David Williams",
+    "position": "Founder, StartUp Co.",
+    "content": "Exceeded our expectations in every way.",
+    "rating": 5,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Susan Brown",
+    "position": "COO, Global Solutions",
+    "content": "A reliable partner that delivers on their promises.",
+    "rating": 4,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Michael Davis",
+    "position": "IT Director, WebWorks",
+    "content": "Their expertise and support are top-notch.",
+    "rating": 5,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Linda Miller",
+    "position": "CEO, Creative Minds",
+    "content": "A pleasure to work with. They truly understand our needs.",
+    "rating": 5,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Robert Wilson",
+    "position": "CFO, FinanceFast",
+    "content": "The financial benefits have been significant.",
+    "rating": 5,
+    "isUserSubmitted": false
+  },
+  {
+    "name": "Patricia Moore",
+    "position": "Marketing Manager, BrandBuilders",
+    "content": "Our brand has seen a huge boost thanks to their work.",
+    "rating": 5,
+    "isUserSubmitted": false
+  }
+]
