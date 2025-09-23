@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 import {
   Mail,
   Phone,
@@ -125,12 +126,23 @@ const Contact = () => {
         <section className="py-20 bg-gradient-to-r from-primary to-primary-glow text-white">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Get In Touch
+              <motion.h1
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Get In Touch
+              </motion.h1>
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            <motion.p
+              className="text-xl md:text-2xl max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               Ready to transform your business with cutting-edge technology?
               Let's discuss your project and create something amazing together.
-            </p>
+            </motion.p>
           </div>
         </section>
 

@@ -96,7 +96,7 @@ const Header = () => {
             <Dialog>
               <span className="cursor-pointer">
                 <DialogTrigger asChild>
-                  <Button variant="quote">Get Quote</Button>
+                  <Button variant="quote">Get Free Quote</Button>
                 </DialogTrigger>
               </span>
               <DialogContent className="sm:max-w-[425px]">

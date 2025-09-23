@@ -82,6 +82,8 @@ const GetQuote = () => {
                 <SelectContent>
                   <SelectItem value="web-development">Web Development</SelectItem>
                   <SelectItem value="mobile-app-development">Mobile App Development</SelectItem>
+                  <SelectItem value="crm-software">CRM Software</SelectItem>
+                  <SelectItem value="erp-software">ERP Software</SelectItem>
                   <SelectItem value="cloud-solutions">Cloud Solutions</SelectItem>
                   <SelectItem value="digital-marketing">Digital Marketing</SelectItem>
                   <SelectItem value="it-support">IT Support</SelectItem>

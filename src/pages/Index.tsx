@@ -1,28 +1,72 @@
+import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import { Button } from "@/components/ui/button";
 import ContactSection from "@/components/sections/ContactSection";
-import Industry from "./Industry";
+import Footer from "@/components/layout/Footer";
 
-const Index = ({ isAuthenticated, handleLogout }) => {
+const Index = () => {
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="min-h-screen">
-      <Header  />
+    <div>
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <Header />
+      </motion.div>
+
       <main>
-        {isAuthenticated && (
-          <div className="flex justify-end p-4">
-            <Button onClick={handleLogout}>Logout</Button>
-          </div>
-        )}
         <HeroSection />
-        <ServicesSection />
-        <TestimonialsSection isAuthenticated={isAuthenticated} />
-        <ContactSection />
+
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <ServicesSection />
+        </motion.div>
+
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <TestimonialsSection />
+        </motion.div>
+
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <ContactSection />
+        </motion.div>
       </main>
-      <Footer />
+
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+      >
+        <Footer />
+      </motion.div>
     </div>
   );
 };

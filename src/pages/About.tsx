@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Target, Award, Lightbulb } from "lucide-react";
 
@@ -9,49 +10,53 @@ const About = () => {
       name: "Nagar Ashish",
       position: "CEO & Founder",
       bio: "5+ years in tech leadership, former Microsoft architect",
-      image: "/api/placeholder/200/200"
+      image: "/api/placeholder/200/200",
     },
     {
       name: "Sarah Davis",
       position: "CTO",
       bio: "Expert in cloud architecture and scalable systems",
-      image: "/api/placeholder/200/200"
+      image: "/api/placeholder/200/200",
     },
     {
       name: "Mike Johnson",
       position: "Lead Developer",
       bio: "Full-stack expert specializing in React and Node.js",
-      image: "/api/placeholder/200/200"
+      image: "/api/placeholder/200/200",
     },
     {
       name: "Emily Chen",
       position: "Design Director",
       bio: "Award-winning UI/UX designer with 10+ years experience",
-      image: "/api/placeholder/200/200"
-    }
+      image: "/api/placeholder/200/200",
+    },
   ];
 
   const values = [
     {
       icon: Target,
       title: "Mission",
-      description: "To empower businesses with cutting-edge technology solutions that drive growth and innovation."
+      description:
+        "To empower businesses with cutting-edge technology solutions that drive growth and innovation.",
     },
     {
       icon: Lightbulb,
       title: "Vision",
-      description: "To be the leading IT partner for businesses seeking digital transformation and technological excellence."
+      description:
+        "To be the leading IT partner for businesses seeking digital transformation and technological excellence.",
     },
     {
       icon: Award,
       title: "Excellence",
-      description: "We deliver high-quality solutions that exceed expectations and create lasting value for our clients."
+      description:
+        "We deliver high-quality solutions that exceed expectations and create lasting value for our clients.",
     },
     {
       icon: Users,
       title: "Collaboration",
-      description: "We believe in building strong partnerships and working closely with our clients to achieve shared success."
-    }
+      description:
+        "We believe in building strong partnerships and working closely with our clients to achieve shared success.",
+    },
   ];
 
   return (
@@ -61,11 +66,24 @@ const About = () => {
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-r from-primary to-primary-glow text-white">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">About AK <span className="text-5xl">IT Solution's</span> </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              We're a passionate team of technology experts dedicated to helping businesses 
-              thrive in the digital age through innovative solutions and exceptional service.
-            </p>
+            <motion.h1
+              className="text-5xl md:text-6xl font-bold mb-6"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              About AK <span className="text-5xl">IT Solution's</span>
+            </motion.h1>
+            <motion.p
+              className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-white"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              We're a passionate team of technology experts dedicated to helping
+              businesses thrive in the digital age through innovative solutions
+              and exceptional service.
+            </motion.p>
           </div>
         </section>
 
@@ -73,22 +91,31 @@ const About = () => {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-bold text-center mb-12">Our Story</h2>
+              <h2 className="text-4xl font-bold text-center mb-12">
+                Our Story
+              </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground">
                 <p className="text-xl leading-relaxed mb-6">
-                  Founded in 2020, <span className="text-2xl font-semibold">AK</span> <span className="font-medium">IT Solution's</span> emerged from a simple yet powerful vision: to bridge the gap 
-                  between complex technology and business success. Our founders, veterans of the tech industry, 
-                  recognized that many businesses struggled to leverage technology effectively.
+                  Founded in 2020,{" "}
+                  <span className="text-2xl font-semibold">AK</span>{" "}
+                  <span className="font-medium">IT Solution's</span> emerged
+                  from a simple yet powerful vision: to bridge the gap between
+                  complex technology and business success. Our founders,
+                  veterans of the tech industry, recognized that many businesses
+                  struggled to leverage technology effectively.
                 </p>
                 <p className="text-lg leading-relaxed mb-6">
-                  What started as a small team of developers has grown into a comprehensive IT solutions 
-                  provider serving clients across various industries. We've successfully delivered over 500 
-                  projects, helping businesses transform their operations and achieve their digital goals.
+                  What started as a small team of developers has grown into a
+                  comprehensive IT solutions provider serving clients across
+                  various industries. We've successfully delivered over 500
+                  projects, helping businesses transform their operations and
+                  achieve their digital goals.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Today, we continue to push the boundaries of what's possible, staying at the forefront 
-                  of technological innovation while maintaining our commitment to personalized service 
-                  and client success.
+                  Today, we continue to push the boundaries of what's possible,
+                  staying at the forefront of technological innovation while
+                  maintaining our commitment to personalized service and client
+                  success.
                 </p>
               </div>
             </div>
@@ -103,13 +130,20 @@ const About = () => {
               {values.map((value, index) => {
                 const IconComponent = value.icon;
                 return (
-                  <Card key={index} className="text-center border-0 bg-background/80 backdrop-blur-sm">
+                  <Card
+                    key={index}
+                    className="text-center border-0 bg-background/80 backdrop-blur-sm"
+                  >
                     <CardContent className="p-8">
                       <div className="mx-auto mb-6 p-4 bg-primary/10 rounded-full w-fit">
                         <IconComponent className="h-8 w-8 text-primary" />
                       </div>
-                      <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
-                      <p className="text-muted-foreground">{value.description}</p>
+                      <h3 className="text-xl font-semibold mb-4">
+                        {value.title}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {value.description}
+                      </p>
                     </CardContent>
                   </Card>
                 );

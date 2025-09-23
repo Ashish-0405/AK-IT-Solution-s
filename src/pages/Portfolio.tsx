@@ -1,202 +1,328 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Briefcase,
+  TrendingUp,
+  Award,
+  Cloud,
+  Megaphone,
+  ShieldCheck,
+  Building,
+  X,
+} from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import GetQuote from "./GetQuote";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Code, Smartphone, Cloud, Globe } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
-const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState("all");
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      category: "web",
-      description: "Modern e-commerce platform with advanced inventory management and analytics dashboard.",
-      technologies: ["React", "Node.js", "PostgreSQL", "AWS"],
-      image: "/public/portfolio-image/e-commerce-landing-page.jpeg",
-      client: "RetailCorp",
-      results: ["300% increase in sales", "50% faster load times", "99.9% uptime"],
-      icon: Globe
+const projects = [
+  {
+    title: "CRM Dashboard",
+    category: "Customize Software",
+    overview:
+      "A comprehensive CRM dashboard providing a 360-degree view of customer interactions, sales pipelines, and marketing performance.",
+    technologies: ["React", "Node.js", "MongoDB", "GraphQL"],
+    image: "/portfolio-image/E-commerce-Wesite.png",
+    client: "SalesForce Inc.",
+    testimonial: {
+      text: "The new CRM dashboard has revolutionized our sales process, increasing conversion rates by 40%.",
+      author: "John Doe, Head of Sales",
     },
-    {
-      title: "Healthcare Mobile App",
-      category: "mobile",
-      description: "Telemedicine app connecting patients with healthcare providers for remote consultations.",
-      technologies: ["React Native", "Firebase", "WebRTC"],
-      image: "/api/placeholder/400/250",
-      client: "MediCare Solutions",
-      results: ["10,000+ active users", "4.8 App Store rating", "HIPAA compliant"],
-      icon: Smartphone
+    icon: Briefcase,
+  },
+  {
+    title: "ERP System",
+    category: "Software",
+    overview:
+      "An integrated ERP system to streamline complex business processes, including finance, HR, and supply chain management.",
+    technologies: ["Angular", "Java", "PostgreSQL", "AWS"],
+    image: "/portfolio-image/Erp-software.jpeg",
+    client: "LogisticsCorp",
+    testimonial: {
+      text: "A world-class ERP system that transformed our business, reducing operational costs by 30%.",
+      author: "Jane Smith, COO",
     },
-    {
-      title: "Cloud Migration Project",
-      category: "cloud",
-      description: "Complete infrastructure migration from on-premise to AWS with 40% cost reduction.",
-      technologies: ["AWS", "Docker", "Kubernetes", "Terraform"],
-      image: "/api/placeholder/400/250",
-      client: "TechStart Inc",
-      results: ["40% cost reduction", "99.99% availability", "Zero downtime migration"],
-      icon: Cloud
+    icon: Building,
+  },
+  {
+    title: "E-Commerce Platform",
+    category: "Web Development",
+    overview:
+      "A high-performance, scalable e-commerce platform with advanced inventory management and a personalized recommendation engine.",
+    technologies: ["React", "Node.js", "PostgreSQL", "Redis"],
+    image: "/portfolio-image/e-commerce-landing-page.jpeg",
+    client: "RetailCorp",
+    testimonial: {
+      text: "Our online sales have skyrocketed since the launch. The team at AK IT Solutions is professional and dedicated.",
+      author: "Emily Johnson, CEO",
     },
-    {
-      title: "Financial Dashboard",
-      category: "web",
-      description: "Real-time financial analytics dashboard with advanced reporting capabilities.",
-      technologies: ["Vue.js", "Python", "PostgreSQL", "D3.js"],
-      image: "/api/placeholder/400/250",
-      client: "FinanceFlow",
-      results: ["Real-time data processing", "50+ custom reports", "SOC 2 compliant"],
-      icon: Code
+    icon: TrendingUp,
+  },
+  {
+    title: "Healthcare Mobile App",
+    category: "Mobile App",
+    overview:
+      "A HIPAA-compliant telemedicine app connecting patients with healthcare providers for secure remote consultations.",
+    technologies: ["React Native", "Firebase", "WebRTC"],
+    image: "/portfolio-image/Mobile-App.png",
+    client: "MediCare Solutions",
+    testimonial: {
+      text: "The telemedicine app has been a game-changer for our practice. Secure, reliable, and our patients love it.",
+      author: "Dr. Michael Brown",
     },
-    {
-      title: "Food Delivery App",
-      category: "mobile",
-      description: "Full-stack food delivery platform with real-time tracking and payment integration.",
-      technologies: ["Flutter", "Node.js", "MongoDB", "Stripe"],
-      image: "/api/placeholder/400/250",
-      client: "QuickEats",
-      results: ["25,000+ orders processed", "4.7 user rating", "30-second checkout"],
-      icon: Smartphone
+    icon: Award,
+  },
+  {
+    title: "Cloud Migration",
+    category: "Cloud Solutions",
+    overview:
+      "A seamless cloud migration for a large enterprise, moving their on-premise infrastructure to a hybrid cloud environment.",
+    technologies: ["AWS", "Azure", "Terraform", "Kubernetes"],
+    image: "/portfolio-image/cloud-img.png",
+    client: "Enterprise United",
+    testimonial: {
+      text: "A smooth transition with zero downtime. Our infrastructure is now more robust and cost-effective.",
+      author: "David Lee, CTO",
     },
-    {
-      title: "DevOps Automation",
-      category: "cloud",
-      description: "CI/CD pipeline automation reducing deployment time by 80%.",
-      technologies: ["Jenkins", "Docker", "AWS", "Ansible"],
-      image: "/api/placeholder/400/250",
-      client: "DevCorp",
-      results: ["80% faster deployments", "90% fewer deployment errors", "24/7 monitoring"],
-      icon: Cloud
-    }
-  ];
+    icon: Cloud,
+  },
+  {
+    title: "Digital Marketing Campaign",
+    category: "Digital Marketing",
+    overview:
+      "A multi-channel digital marketing campaign that resulted in a 300% increase in brand awareness and a 150% rise in lead generation.",
+    technologies: ["Google Analytics", "SEMrush", "HubSpot"],
+    image: "/portfolio-image/Digital-Market.jpg",
+    client: "InnovateX",
+    testimonial: {
+      text: "The results were phenomenal, helping us achieve our business objectives faster than we thought possible.",
+      author: "Sarah Chen, Marketing Director",
+    },
+    icon: Megaphone,
+  },
+  {
+    title: "Managed IT Services",
+    category: "IT Support",
+    overview:
+      "Comprehensive managed IT services for a financial services firm, ensuring systems are secure, reliable, and compliant.",
+    technologies: ["Zendesk", "Jira", "Active Directory"],
+    image: "/portfolio-image/It-support.jpeg",
+    client: "FinancePro",
+    testimonial: {
+      text: "An invaluable partner. Their IT support is top-notch, and their team is always responsive and knowledgeable.",
+      author: "Mark Roberts, Managing Partner",
+    },
+    icon: ShieldCheck,
+  },
+];
 
-  const categories = [
-    { id: "all", name: "All Projects", icon: Globe },
-    { id: "web", name: "Web Development", icon: Code },
-    { id: "mobile", name: "Mobile Apps", icon: Smartphone },
-    { id: "cloud", name: "Cloud Solutions", icon: Cloud }
-  ];
+const categories = [
+  "All",
+  "Customize Software",
+  "Web Development",
+  "Mobile App",
+  "Cloud Solutions",
+  "Digital Marketing",
+  "IT Support",
+];
 
-  const filteredProjects = activeFilter === "all" 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+const ProjectCard = ({ project, onClick }) => (
+  <motion.div
+    layout
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.8 }}
+    transition={{ duration: 0.4, ease: "easeInOut" }}
+    className="relative rounded-lg overflow-hidden cursor-pointer group"
+    onClick={() => onClick(project)}
+  >
+    <img
+      src={project.image}
+      alt={project.title}
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+    />
+    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
+    <div className="absolute bottom-0 left-0 p-6 text-white">
+      <h3 className="text-2xl font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+        {project.title}
+      </h3>
+      <Badge
+        variant="secondary"
+        className="opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+      >
+        {project.category}
+      </Badge>
+    </div>
+  </motion.div>
+);
+
+const ProjectModal = ({ project, onClose }) => (
+  <motion.div
+    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+  >
+    <motion.div
+      className="bg-card text-foreground rounded-xl w-full max-w-4xl h-auto max-h-[90vh] flex flex-col md:flex-row overflow-hidden"
+      initial={{ y: "100vh", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: "100vh", opacity: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <div className="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="w-full md:w-1/2 p-8 flex flex-col justify-center overflow-y-auto">
+        <Badge variant="secondary" className="mb-4 self-start">
+          {project.category}
+        </Badge>
+        <h2 className="text-4xl font-bold text-primary mb-4">
+          {project.title}
+        </h2>
+        <p className="text-muted-foreground mb-6 text-lg">{project.overview}</p>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.technologies.map((tech) => (
+            <Badge key={tech} variant="outline">
+              {tech}
+            </Badge>
+          ))}
+        </div>
+        <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
+          "{project.testimonial.text}"
+          <footer className="mt-2 not-italic font-semibold text-foreground">
+            - {project.testimonial.author}
+          </footer>
+        </blockquote>
+      </div>
+    </motion.div>
+    <Button
+      variant="ghost"
+      size="icon"
+      className="absolute top-4 right-4 text-white"
+      onClick={onClose}
+    >
+      <X className="w-8 h-8" />
+    </Button>
+  </motion.div>
+);
+
+const NewPortfolio = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [isSending, setIsSending] = useState(false);
+
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <div className="min-h-screen">
+    <div className="bg-background text-foreground">
       <Header />
-      <main>
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-r from-primary to-primary-glow text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Portfolio</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              Explore our successful projects and see how we've helped businesses 
-              achieve their digital transformation goals.
-            </p>
-          </div>
-        </section>
 
-        {/* Filter Tabs */}
-        <section className="py-12 bg-background border-b">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center gap-4">
-              {categories.map((category) => {
-                const IconComponent = category.icon;
-                return (
-                 
-                  <Button
-                    key={category.id}
-                    variant={activeFilter === category.id ? "default" : "outline"}
-                    onClick={() => setActiveFilter(category.id)}
-                    className="flex items-center space-x-2"
-                  >
-                    <IconComponent className="h-4 w-4" />
-                    <span>{category.name}</span>
-                  </Button>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+      <section className="py-20 text-center bg-gradient-to-r from-primary to-primary-glow mb-10">
+        <motion.h1
+          className="text-5xl md:text-7xl font-bold mb-4 text-white"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Our Works
+        </motion.h1>
+        <motion.p
+          className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-white"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+         Explore our successful projects and see how we've helped businesses achieve their digital transformation goals.
+        </motion.p>
+      </section>
 
-        {/* Projects Grid */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project, index) => {
-                const IconComponent = project.icon;
-                return (
-                  <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 bg-card/50 backdrop-blur-sm overflow-hidden">
-                    <div className="relative">
-                      <div className="h-48 bg-muted flex items-center justify-center">
-                        <IconComponent className="h-16 w-16 text-muted-foreground" />
-                      </div>
-                      <div className="absolute top-4 right-4">
-                        <Badge variant="secondary">{project.client}</Badge>
-                      </div>
-                    </div>
-                    
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                      <p className="text-muted-foreground mb-4 text-sm">{project.description}</p>
-                      
-                      <div className="mb-4">
-                        <h4 className="font-medium mb-2 text-sm">Technologies:</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {project.technologies.map((tech, techIndex) => (
-                            <Badge key={techIndex} variant="outline" className="text-xs">{tech}</Badge>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="mb-6">
-                        <h4 className="font-medium mb-2 text-sm">Key Results:</h4>
-                        <ul className="space-y-1">
-                          {project.results.map((result, resultIndex) => (
-                            <li key={resultIndex} className="text-xs text-muted-foreground flex items-center">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                              {result}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+      <div className="container mx-auto px-4">
+        <div className="flex justify-center flex-wrap gap-2 mb-12">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={activeFilter === category ? "default" : "outline"}
+              onClick={() => setActiveFilter(category)}
+              className="transition-all duration-300"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
 
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence>
+            {filteredProjects.map((project) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                onClick={setSelectedProject}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can help you achieve similar success with your digital transformation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg"  onClick={() => {
-                                window.open(
-                                  "https://calendly.com/ak-nagar-0405/30min",
-                                  "_blank"
-                                );
-                              }}>
-                Schedule Consultation
-              </Button>
-              {/* <Button size="lg" variant="outline">
-                Download Portfolio PDF
-              </Button> */}
-            </div>
-          </div>
-        </section>
-      </main>
+      <section className="py-20 mt-20 text-center bg-card">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          Let's Create Together
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          Have a project in mind? We'd love to hear about it.
+        </p>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button size="lg" variant="quote">
+              Get in Touch
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle className="text-2xl mb-2 text-center underline">
+                Get a Quote
+              </DialogTitle>
+              <DialogDescription className="text-center text-l">
+                Fill out the form below and we'll get back to you with a quote
+                as soon as possible.
+              </DialogDescription>
+            </DialogHeader>
+            <GetQuote />
+          </DialogContent>
+        </Dialog>
+      </section>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
+      </AnimatePresence>
+
       <Footer />
     </div>
   );
 };
 
-export default Portfolio;
+export default NewPortfolio;

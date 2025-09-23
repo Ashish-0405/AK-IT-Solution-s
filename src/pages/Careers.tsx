@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { motion } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -277,12 +278,23 @@ const uploadToCloudinary = async (file: File): Promise<string> => {
         <section className="py-20 bg-gradient-to-r from-primary to-primary-glow text-white">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Join Our Team
+              <motion.h1
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Join Our Team
+              </motion.h1>
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            <motion.p
+              className="text-xl md:text-2xl max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               Build the future of technology with a passionate team of
               innovators, creators, and problem-solvers.
-            </p>
+            </motion.p>
           </div>
         </section>
 
