@@ -9,8 +9,8 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="h-12 w-12 rounded"><img src="/AK-iT.png"/> </div>
-              <span className="text-l font-bold mb-2"><span className="text-2xl">AK</span> IT Solution's</span>
+              <div className="h-20 w-20 rounded-2xl bg-white shadow-lg transition-all duration-200 hover:shadow-black hover:translate-[5px] hover:translate-[5px] hover:cursor-pointer"><img src="/AK1-version-22.svg" alt="" /> </div>
+              <span className="font-bold mb-1"><span className="text-2xl">AK</span> IT Solution's</span>
             </div>
             <p className="text-muted-foreground text-sm">
               Leading IT solutions provider specializing in web development, mobile apps, 
@@ -19,7 +19,11 @@ const Footer = () => {
             <div className="flex space-x-4">
               {/* <Link to={"https://www.instagram.com/ak.it.solutions/"}><Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" /></Link> */}
               {/* <Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" /> */}
-              <Link to={"https://www.instagram.com/ak.it.solutions/"}><Instagram className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" /></Link>
+             <a href={"https://www.linkedin.com/company/ak-itsolutions/"} target="_blank" rel="noopener noreferrer"><img src="/social-media/linkedin-logo-svgrepo-com.svg" alt="" className="h-12 w-12 bg-white p-1 rounded-lg text-foreground hover:text-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-black hover:translate-[5px] hover:translate-[5px] hover:cursor-pointer max-sm:h-10 max-sm:w-10" /></a>
+              <a href={"https://www.facebook.com/profile.php?id=61580661543575"} target="_blank" rel="noopener noreferrer"><img src="/social-media/facebook-5-logo-svgrepo-com.svg" alt="" className="h-12 w-12 bg-white p-1 rounded-lg text-foreground hover:text-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-black hover:translate-[5px] hover:translate-[5px] hover:cursor-pointer max-sm:h-10 max-sm:w-10" /></a>
+              <a href={"https://www.instagram.com/ak.it.solutions/"} target="_blank" rel="noopener noreferrer"><img src="/social-media/instagram-logo-svgrepo-com.svg" alt="" className="h-12 w-12 bg-white p-1 rounded-lg text-foreground hover:text-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-black hover:translate-[5px] hover:translate-[5px] hover:cursor-pointer max-sm:h-10 max-sm:w-10" /></a>
+              <a href={"https://wa.me/919016452340"} target="_blank" rel="noopener noreferrer"><img src="/social-media/whatsapp-logo-svgrepo-com.svg" alt="" className="h-12 w-12 bg-white p-1 rounded-lg text-foreground hover:text-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-black hover:translate-[5px] hover:translate-[5px] hover:cursor-pointer max-sm:h-10 max-sm:w-10" /></a>
+              {/* <a href={"https://www.instagram.com/ak.it.solutions/"} target="_blank" rel="noopener noreferrer"><Instagram className="h-10 w-10 bg-white p-2 rounded-lg text-foreground hover:text-primary shadow-lg transition-all duration-300 ease-in-out hover:shadow-black hover:translate-[5px] hover:translate-[5px] hover:cursor-pointer" /></a> */}
             </div>
           </div>
 

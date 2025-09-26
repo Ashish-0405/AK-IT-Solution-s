@@ -1,15 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
-  Code,
-  Smartphone,
-  Cloud,
-  HeadphonesIcon,
-  DatabaseIcon,
-  LayersIcon,
-  CodeIcon,
-  ShieldCheckIcon,
-  GlobeIcon,
   ArrowRight,
   CheckCircle2,
   ChevronLeft,
@@ -18,63 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { useState, useEffect } from "react";
-
-const services = [
-    {
-        icon: Code,
-        title: "Web Development",
-        description: "Custom web applications built with modern technologies like React, Node.js, and cloud-native architecture.",
-        features: ["Responsive Design", "SEO Optimized", "Performance Focused", "Secure & Scalable"],
-      },
-      {
-        icon: Smartphone,
-        title: "Mobile App Development",
-        description: "Native and cross-platform mobile applications for iOS and Android with seamless user experiences.",
-        features: ["Native iOS/Android", "Cross-Platform", "UI/UX Design", "App Store Optimization"],
-      },
-      {
-        icon: Cloud,
-        title: "Cloud Solutions",
-        description: "Comprehensive cloud infrastructure, migration services, and DevOps solutions for scalable business growth.",
-        features: ["AWS/Azure/GCP", "Migration Services", "DevOps Automation", "Cost Optimization"],
-      },
-      {
-        icon: HeadphonesIcon,
-        title: "IT Support",
-        description: "24/7 technical support, system maintenance, and proactive monitoring to keep your business running smoothly.",
-        features: ["24/7 Support", "System Monitoring", "Preventive Maintenance", "Emergency Response"],
-      },
-      {
-        icon: DatabaseIcon,
-        title: "CRM Management",
-        description: "Streamlined customer relationship management with advanced tools to track leads, manage clients, and improve sales efficiency.",
-        features: ["Lead Tracking", "Client Management", "Sales Pipeline", "Performance Analytics"],
-      },
-      {
-        icon: LayersIcon,
-        title: "ERP Software",
-        description: "Comprehensive enterprise resource planning to integrate finance, HR, inventory, and business workflows in a centralized system.",
-        features: ["Finance Management", "HR & Payroll", "Inventory Control", "Workflow Automation"],
-      },
-      {
-        icon: CodeIcon,
-        title: "Custom Software Development",
-        description: "Tailor-made software solutions built to fit your unique business requirements, from web platforms to mobile apps.",
-        features: ["Web Development", "Mobile Apps", "API Integration", "Custom Dashboards"],
-      },
-      {
-        icon: ShieldCheckIcon,
-        title: "Cybersecurity Services",
-        description: "Advanced security solutions to protect your business data, networks, and digital assets against evolving threats.",
-        features: ["Data Protection", "Vulnerability Testing", "Threat Monitoring", "Compliance Management"],
-      },
-      {
-        icon: GlobeIcon,
-        title: "Digital & Marketing Automation",
-        description: "Automated marketing workflows to engage customers, increase conversions, and grow your brand presence online.",
-        features: ["Email Campaigns", "Social Media Automation", "SEO Tools", "Customer Insights"],
-      }
-];
+import { services } from "@/data/servicesData";
 
 const useMediaQuery = (query: string) => {
     const [matches, setMatches] = useState(false);

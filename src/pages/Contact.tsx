@@ -46,7 +46,7 @@ const Contact = () => {
       title: "Email Support",
       description: "Get detailed help via email",
       details: [
-        "Hr: career.akitsol@gmail.com",
+        "Hr: career.akitsolutions@gmail.com",
         "Sales: sales@akitsol.com",
       ],
       availability: "Response within 2 hours",

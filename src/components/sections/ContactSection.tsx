@@ -190,7 +190,7 @@ const ContactSection = () => {
                   <div>
                     <h3 className="font-semibold mb-2">Email Addresses</h3>
                     <p className="text-muted-foreground">
-                      <span className="text-primary font-medium">HR & Support:</span> career.akitsol@gmail.com<br />
+                      <span className="text-primary font-medium">HR & Support:</span> career.akitsolutions@gmail.com<br />
                       <span className="text-primary font-medium">Sales:</span> sales@akitsol.com
                     </p>
                   </div>

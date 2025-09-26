@@ -59,7 +59,7 @@ const App = () => {
           </div>
           <AdvancedChatbot />
         </BrowserRouter>
-        <WhatsAppButton />
+        {/* <WhatsAppButton /> */}
       </TooltipProvider>
     </QueryClientProvider>
   );

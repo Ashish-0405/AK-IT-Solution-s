@@ -6,7 +6,7 @@ const PreHeader = () => {
     "Your Trusted Partner for Innovative IT Solutions",
     "Contact us for a free consultation!",
     "Expert Web & Mobile App Development",
-    "Cloud Solutions & CRM Software",
+    "ERP Software, Cloud Solutions & CRM Software",
     "Digital Marketing & AI Integration"
   ];
 

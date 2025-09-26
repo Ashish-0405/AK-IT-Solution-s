@@ -47,9 +47,9 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="h-16 w-16 rounded max-sm:h-12 max-sm:w-12"><img src="/AK-iT.png" alt="" /></div>
-            <span className="text-l font-semibold mb-2 max-sm:text-base"><span className="font-bold text-xl max-sm:text-lg">AK</span> IT Solution's</span>
+          <Link to="/" className="flex items-center">
+            <div className="h-24 w-24 rounded max-sm:h-16 max-sm:w-16"><img src="/AK1-version-22.svg" alt="" /></div>
+            <span className="text-l font-semibold max-sm:text-sm"><span className="font-bold text-xl max-sm:text-lg">AK</span> IT Solution's</span>
           </Link>
 
           {/* Desktop Navigation */}
