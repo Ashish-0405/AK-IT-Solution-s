@@ -173,7 +173,7 @@ const ContactSection = () => {
                   <div>
                     <h3 className="font-semibold mb-2">Phone Numbers</h3>
                     <p className="text-muted-foreground">
-                      <span className="text-primary font-medium">CEO & Co-Founder:</span> +91 90164 52340<br />
+                      <span className="text-primary font-medium">CEO:</span> +91 90164 52340<br />
                       <span className="text-primary font-medium">HR & Support:</span> +91 79904 74629
                     </p>
                   </div>

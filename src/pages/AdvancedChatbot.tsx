@@ -18,7 +18,7 @@ const AdvancedChatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(true); // To control chat visibility
+  const [isOpen, setIsOpen] = useState(false); // To control chat visibility
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

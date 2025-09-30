@@ -26,104 +26,104 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    title: "CRM Dashboard",
-    category: "Customize Software",
-    overview:
+    "title": "CRM Dashboard",
+    "category": "Customize Software",
+    "overview":
       "A comprehensive CRM dashboard providing a 360-degree view of customer interactions, sales pipelines, and marketing performance.",
-    technologies: ["React", "Node.js", "MongoDB", "GraphQL"],
-    image: "/portfolio-image/E-commerce-Wesite.png",
-    client: "SalesForce Inc.",
-    testimonial: {
-      text: "The new CRM dashboard has revolutionized our sales process, increasing conversion rates by 40%.",
-      author: "John Doe, Head of Sales",
+    "technologies": ["React", "Node.js", "MongoDB", "GraphQL"],
+    "image": "/portfolio-image/E-commerce-Wesite.png",
+    "client": "Mahindra Sales Pvt Ltd",
+    "testimonial": {
+      "text": "The new CRM dashboard has revolutionized our sales process, increasing conversion rates by 40%.",
+      "author": "Ravi Sharma, Head of Sales",
     },
-    icon: Briefcase,
+    "icon": "Briefcase",
   },
   {
-    title: "ERP System",
-    category: "Software",
-    overview:
+    "title": "ERP System",
+    "category": "Software",
+    "overview":
       "An integrated ERP system to streamline complex business processes, including finance, HR, and supply chain management.",
-    technologies: ["Angular", "Java", "PostgreSQL", "AWS"],
-    image: "/portfolio-image/Erp-software.jpeg",
-    client: "LogisticsCorp",
-    testimonial: {
-      text: "A world-class ERP system that transformed our business, reducing operational costs by 30%.",
-      author: "Jane Smith, COO",
+    "technologies": ["Angular", "Java", "PostgreSQL", "AWS"],
+    "image": "/portfolio-image/Erp-software.jpeg",
+    "client": "Shree Logistics Ltd",
+    "testimonial": {
+      "text": "A world-class ERP system that transformed our business, reducing operational costs by 30%.",
+      "author": "Meera Patel, COO",
     },
-    icon: Building,
+    "icon": "Building",
   },
   {
-    title: "E-Commerce Platform",
-    category: "Web Development",
-    overview:
+    "title": "E-Commerce Platform",
+    "category": "Web Development",
+    "overview":
       "A high-performance, scalable e-commerce platform with advanced inventory management and a personalized recommendation engine.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Redis"],
-    image: "/portfolio-image/e-commerce-landing-page.jpeg",
-    client: "RetailCorp",
-    testimonial: {
-      text: "Our online sales have skyrocketed since the launch. The team at AK IT Solutions is professional and dedicated.",
-      author: "Emily Johnson, CEO",
+    "technologies": ["React", "Node.js", "PostgreSQL", "Redis"],
+    "image": "/portfolio-image/e-commerce-landing-page.jpeg",
+    "client": "Vastra Retail Pvt Ltd",
+    "testimonial": {
+      "text": "Our online sales have skyrocketed since the launch. The team at AK IT Solutions is professional and dedicated.",
+      "author": "Priya Desai, CEO",
     },
-    icon: TrendingUp,
+    "icon": "TrendingUp",
   },
   {
-    title: "Healthcare Mobile App",
-    category: "Mobile App",
-    overview:
-      "A HIPAA-compliant telemedicine app connecting patients with healthcare providers for secure remote consultations.",
-    technologies: ["React Native", "Firebase", "WebRTC"],
-    image: "/portfolio-image/Mobile-App.png",
-    client: "MediCare Solutions",
-    testimonial: {
-      text: "The telemedicine app has been a game-changer for our practice. Secure, reliable, and our patients love it.",
-      author: "Dr. Michael Brown",
+    "title": "Healthcare Mobile App",
+    "category": "Mobile App",
+    "overview":
+      "An HIPAA-compliant telemedicine app connecting patients with healthcare providers for secure remote consultations.",
+    "technologies": ["React Native", "Firebase", "WebRTC"],
+    "image": "/portfolio-image/Mobile-App.png",
+    "client": "Medilink Solutions",
+    "testimonial": {
+      "text": "The telemedicine app has been a game-changer for our practice. Secure, reliable, and our patients love it.",
+      "author": "Dr. Suresh Nair",
     },
-    icon: Award,
+    "icon": "Award",
   },
   {
-    title: "Cloud Migration",
-    category: "Cloud Solutions",
-    overview:
+    "title": "Cloud Migration",
+    "category": "Cloud Solutions",
+    "overview":
       "A seamless cloud migration for a large enterprise, moving their on-premise infrastructure to a hybrid cloud environment.",
-    technologies: ["AWS", "Azure", "Terraform", "Kubernetes"],
-    image: "/portfolio-image/cloud-img.png",
-    client: "Enterprise United",
-    testimonial: {
-      text: "A smooth transition with zero downtime. Our infrastructure is now more robust and cost-effective.",
-      author: "David Lee, CTO",
+    "technologies": ["AWS", "Azure", "Terraform", "Kubernetes"],
+    "image": "/portfolio-image/cloud-img.png",
+    "client": "Bharat Enterprises",
+    "testimonial": {
+      "text": "A smooth transition with zero downtime. Our infrastructure is now more robust and cost-effective.",
+      "author": "Ankit Mehta, CTO",
     },
-    icon: Cloud,
+    "icon": "Cloud",
   },
   {
-    title: "Digital Marketing Campaign",
-    category: "Digital Marketing",
-    overview:
+    "title": "Digital Marketing Campaign",
+    "category": "Digital Marketing",
+    "overview":
       "A multi-channel digital marketing campaign that resulted in a 300% increase in brand awareness and a 150% rise in lead generation.",
-    technologies: ["Google Analytics", "SEMrush", "HubSpot"],
-    image: "/portfolio-image/Digital-Market.jpg",
-    client: "InnovateX",
-    testimonial: {
-      text: "The results were phenomenal, helping us achieve our business objectives faster than we thought possible.",
-      author: "Sarah Chen, Marketing Director",
+    "technologies": ["Google Analytics", "SEMrush", "HubSpot"],
+    "image": "/portfolio-image/Digital-Market.jpg",
+    "client": "Innovision India",
+    "testimonial": {
+      "text": "The results were phenomenal, helping us achieve our business objectives faster than we thought possible.",
+      "author": "Neha Gupta, Marketing Director",
     },
-    icon: Megaphone,
+    "icon": "Megaphone",
   },
   {
-    title: "Managed IT Services",
-    category: "IT Support",
-    overview:
+    "title": "Managed IT Services",
+    "category": "IT Support",
+    "overview":
       "Comprehensive managed IT services for a financial services firm, ensuring systems are secure, reliable, and compliant.",
-    technologies: ["Zendesk", "Jira", "Active Directory"],
-    image: "/portfolio-image/It-support.jpeg",
-    client: "FinancePro",
-    testimonial: {
-      text: "An invaluable partner. Their IT support is top-notch, and their team is always responsive and knowledgeable.",
-      author: "Mark Roberts, Managing Partner",
+    "technologies": ["Zendesk", "Jira", "Active Directory"],
+    "image": "/portfolio-image/It-support.jpeg",
+    "client": "Sampatti Finance Ltd",
+    "testimonial": {
+      "text": "An invaluable partner. Their IT support is top-notch, and their team is always responsive and knowledgeable.",
+      "author": "Karan Singh, Managing Partner",
     },
-    icon: ShieldCheck,
-  },
-];
+    "icon": "ShieldCheck",
+  }
+]
 
 const categories = [
   "All",
