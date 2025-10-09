@@ -9,6 +9,8 @@ import {
   ShieldCheck,
   Building,
   X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import {
   Dialog,
@@ -25,6 +27,38 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const projects = [
+  {
+    title: "Jewelry E-commerce Mobile App with Ai Chatbot",
+    category: "Jewelry E-commerce",
+    overview:
+      "An intelligent, conversational AI chatbot for a mobile jewelry e-commerce app, designed to provide instant customer support and personalized jewelry recommendations.",
+    technologies: ["Flutter", "Php", "TensorFlow", "Dialogflow"],
+    image: "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0001.jpg",
+    images: [
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0001.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0002.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0003.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0004.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0005.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0006.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0007.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0008.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0009.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0010.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0011.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0012.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0013.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0014.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0015.jpg",
+      "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0016.jpg",
+    ],
+    client: "Jewelry World",
+    testimonial: {
+      text: "The AI chatbot has transformed Jewelry World customer service, reducing response times by 90% and improving customer satisfaction.",
+      author: "Sunita Sharma, Head of Digital Strategy",
+    },
+    icon: "Award",
+  },
   {
     "title": "CRM Dashboard",
     "category": "Customize Software",
@@ -127,6 +161,8 @@ const projects = [
 
 const categories = [
   "All",
+  "AI Chatbot",
+  "Jewelry E-commerce",
   "Customize Software",
   "Web Development",
   "Mobile App",
@@ -165,60 +201,120 @@ const ProjectCard = ({ project, onClick }) => (
   </motion.div>
 );
 
-const ProjectModal = ({ project, onClose }) => (
-  <motion.div
-    className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-  >
+const ProjectModal = ({ project, onClose }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const hasCarousel = project.images && project.images.length > 1;
+
+  const nextImage = (e) => {
+    e.stopPropagation();
+    if (hasCarousel) {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % project.images.length
+      );
+    }
+  };
+
+  const prevImage = (e) => {
+    e.stopPropagation();
+    if (hasCarousel) {
+      setCurrentImageIndex(
+        (prevIndex) =>
+          (prevIndex - 1 + project.images.length) % project.images.length
+      );
+    }
+  };
+
+  const imageSrc = hasCarousel
+    ? project.images[currentImageIndex]
+    : project.image;
+
+  return (
     <motion.div
-      className="bg-card text-foreground rounded-xl w-full max-w-4xl h-auto max-h-[90vh] flex flex-col md:flex-row overflow-hidden"
-      initial={{ y: "100vh", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: "100vh", opacity: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <div className="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="w-full md:w-1/2 p-8 flex flex-col justify-center overflow-y-auto">
-        <Badge variant="secondary" className="mb-4 self-start">
-          {project.category}
-        </Badge>
-        <h2 className="text-4xl font-bold text-primary mb-4">
-          {project.title}
-        </h2>
-        <p className="text-muted-foreground mb-6 text-lg">{project.overview}</p>
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.technologies.map((tech) => (
-            <Badge key={tech} variant="outline">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-        <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
-          "{project.testimonial.text}"
-          <footer className="mt-2 not-italic font-semibold text-foreground">
-            - {project.testimonial.author}
-          </footer>
-        </blockquote>
-      </div>
-    </motion.div>
-    <Button
-      variant="ghost"
-      size="icon"
-      className="absolute top-4 right-4 text-white"
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       onClick={onClose}
     >
-      <X className="w-8 h-8" />
-    </Button>
-  </motion.div>
-);
+      <motion.div
+        className="bg-card text-foreground rounded-xl w-full max-w-6xl h-auto max-h-[90vh] flex flex-col md:flex-row overflow-hidden"
+        initial={{ y: "100vh", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: "100vh", opacity: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="w-full md:w-2/3 h-96 md:h-auto overflow-hidden relative bg-black">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={imageSrc}
+              src={imageSrc}
+              alt={project.title}
+              className="w-full h-full object-contain"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            />
+          </AnimatePresence>
+          {hasCarousel && (
+            <>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-1/2 left-2 -translate-y-1/2 text-white bg-black/20 hover:bg-black/50"
+                onClick={prevImage}
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-1/2 right-2 -translate-y-1/2 text-white bg-black/20 hover:bg-black/50"
+                onClick={nextImage}
+              >
+                <ChevronRight className="w-8 h-8" />
+              </Button>
+            </>
+          )}
+        </div>
+        <div className="w-full md:w-1/3 p-8 flex flex-col justify-center overflow-y-auto">
+          <Badge variant="secondary" className="mb-4 self-start">
+            {project.category}
+          </Badge>
+          <h2 className="text-4xl font-bold text-primary mb-4">
+            {project.title}
+          </h2>
+          <p className="text-muted-foreground mb-6 text-lg">
+            {project.overview}
+          </p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.technologies.map((tech) => (
+              <Badge key={tech} variant="outline">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+          <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
+            "{project.testimonial.text}"
+            <footer className="mt-2 not-italic font-semibold text-foreground">
+              - {project.testimonial.author}
+            </footer>
+          </blockquote>
+        </div>
+      </motion.div>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-4 right-4 text-white"
+        onClick={onClose}
+      >
+        <X className="w-8 h-8" />
+      </Button>
+    </motion.div>
+  );
+};
 
 const NewPortfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null);
