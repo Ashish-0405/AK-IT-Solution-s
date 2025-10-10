@@ -245,7 +245,7 @@ const ProjectModal = ({ project, onClose }) => {
         transition={{ duration: 0.5, ease: "easeOut" }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="w-full md:w-2/3 h-96 md:h-auto overflow-hidden relative bg-black">
+        <div className="w-full md:w-2/3 h-64 sm:h-80 md:h-auto overflow-hidden relative bg-black">
           <AnimatePresence mode="wait">
             <motion.img
               key={imageSrc}
@@ -279,11 +279,11 @@ const ProjectModal = ({ project, onClose }) => {
             </>
           )}
         </div>
-        <div className="w-full md:w-1/3 p-8 flex flex-col justify-center overflow-y-auto">
+        <div className="w-full md:w-1/3 p-6 md:p-8 flex flex-col justify-center overflow-y-auto">
           <Badge variant="secondary" className="mb-4 self-start">
             {project.category}
           </Badge>
-          <h2 className="text-4xl font-bold text-primary mb-4">
+          <h2 className="text-3xl md:text-2.5xl font-bold text-primary mb-4 mt-10 md:mt-0">
             {project.title}
           </h2>
           <p className="text-muted-foreground mb-6 text-lg">
@@ -332,7 +332,7 @@ const NewPortfolio = () => {
 
       <section className="py-20 text-center bg-gradient-to-r from-primary to-primary-glow mb-10">
         <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-4 text-white"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -365,7 +365,7 @@ const NewPortfolio = () => {
 
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"
         >
           <AnimatePresence>
             {filteredProjects.map((project) => (
@@ -380,7 +380,7 @@ const NewPortfolio = () => {
       </div>
 
       <section className="py-20 mt-20 text-center bg-card">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
           Let's Create Together
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
