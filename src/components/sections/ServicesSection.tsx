@@ -31,11 +31,11 @@ const ServicesSection = () => {
   const isTablet = useMediaQuery("(min-width: 768px)");
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev > 0 ? prev - 1 : services.length - 1));
+    setActiveIndex((prev) => (prev - 1 + services.length) % services.length);
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev < services.length - 1 ? prev + 1 : 0));
+    setActiveIndex((prev) => (prev + 1) % services.length);
   };
 
   return (
@@ -65,7 +65,15 @@ const ServicesSection = () => {
 
         <div className="relative h-[600px] md:h-[650px] flex items-center justify-center">
           {services.map((service, index) => {
-            const distance = index - activeIndex;
+            const numServices = services.length;
+            let distance = index - activeIndex;
+
+            if (distance > numServices / 2) {
+              distance -= numServices;
+            } else if (distance < -numServices / 2) {
+              distance += numServices;
+            }
+
             const absDistance = Math.abs(distance);
             const IconComponent = service.icon;
 

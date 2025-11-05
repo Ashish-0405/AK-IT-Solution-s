@@ -52,6 +52,7 @@ const projects = [
       "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0015.jpg",
       "/portfolio-image/Mobile_App_Image/Mobile App (1) (1)_page-0016.jpg",
     ],
+    figmaPrototype: "https://embed.figma.com/proto/wMb6wOKmShd8hkGRHtZ4eW/Jeweler-App?node-id=10-5988&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=10%3A5988&show-proto-sidebar=1&embed-host=share",
     client: "Jewelry World",
     testimonial: {
       text: "The AI chatbot has transformed Jewelry World customer service, reducing response times by 90% and improving customer satisfaction.",
@@ -203,6 +204,7 @@ const ProjectCard = ({ project, onClick }) => (
 
 const ProjectModal = ({ project, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showPrototype, setShowPrototype] = useState(false);
 
   const hasCarousel = project.images && project.images.length > 1;
 
@@ -247,18 +249,36 @@ const ProjectModal = ({ project, onClose }) => {
       >
         <div className="w-full md:w-2/3 h-64 sm:h-80 md:h-auto overflow-hidden relative bg-black">
           <AnimatePresence mode="wait">
-            <motion.img
-              key={imageSrc}
-              src={imageSrc}
-              alt={project.title}
-              className="w-full h-full object-contain"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            />
+            {showPrototype && project.figmaPrototype ? (
+              <motion.div
+                key="figma-prototype"
+                className="w-full h-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <iframe
+                  className="w-full h-full"
+                  style={{ border: 0 }}
+                  src={project.figmaPrototype}
+                  allowFullScreen
+                ></iframe>
+              </motion.div>
+            ) : (
+              <motion.img
+                key={imageSrc}
+                src={imageSrc}
+                alt={project.title}
+                className="w-full h-full object-contain"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            )}
           </AnimatePresence>
-          {hasCarousel && (
+          {!showPrototype && hasCarousel && (
             <>
               <Button
                 variant="ghost"
@@ -296,6 +316,13 @@ const ProjectModal = ({ project, onClose }) => {
               </Badge>
             ))}
           </div>
+          {project.figmaPrototype && (
+            <div className="mb-6">
+              <Button onClick={() => setShowPrototype(!showPrototype)}>
+                {showPrototype ? "Show Images" : "Show Prototype"}
+              </Button>
+            </div>
+          )}
           <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
             "{project.testimonial.text}"
             <footer className="mt-2 not-italic font-semibold text-foreground">
@@ -360,7 +387,7 @@ const NewPortfolio = () => {
             >
               {category}
             </Button>
-          ))}
+          ))}\
         </div>
 
         <motion.div
@@ -374,7 +401,7 @@ const NewPortfolio = () => {
                 project={project}
                 onClick={setSelectedProject}
               />
-            ))}
+            ))}\
           </AnimatePresence>
         </motion.div>
       </div>
