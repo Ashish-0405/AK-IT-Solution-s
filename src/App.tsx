@@ -16,6 +16,10 @@ import WhatsAppButton from "./pages/whatsappButton";
 import AdvancedChatbot from "./pages/AdvancedChatbot";
 import PreHeader from "./components/layout/PreHeader";
 import Header from "./components/layout/Header";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import Shipping from "./pages/Shipping";
+import CancellationAndRefund from "./pages/CancellationAndRefund";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register"; // Add this line
 import { useState } from "react";
@@ -52,6 +56,10 @@ const App = () => {
                 {/* <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated} users={users} />} />
                 <Route path="/register" element={<RegisterPage setUsers={setUsers} />} /> Add this line */}
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                <Route path="/cancellation-and-refund" element={<CancellationAndRefund />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/shipping" element={<Shipping />} />
                 <Route path="/industry" element={<Industry />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

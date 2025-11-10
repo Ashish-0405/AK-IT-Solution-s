@@ -210,7 +210,7 @@ const Footer = () => {
               Terms & Conditions
             </Link>
             <Link
-              to="/cancellation-refunds"
+              to="/cancellation-and-refund"
               className="hover:text-primary hover:underline transition-colors"
             >
               Cancellation & Refunds
