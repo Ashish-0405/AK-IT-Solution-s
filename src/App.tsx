@@ -17,7 +17,7 @@ import AdvancedChatbot from "./pages/AdvancedChatbot";
 import PreHeader from "./components/layout/PreHeader";
 import Header from "./components/layout/Header";
 import TermsAndConditions from "./pages/TermsAndConditions";
-import Shipping from "./pages/Shipping";
+// import Shipping from "./pages/Shipping";
 import CancellationAndRefund from "./pages/CancellationAndRefund";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import LoginPage from "./pages/Login";
@@ -59,7 +59,7 @@ const App = () => {
                 <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                 <Route path="/cancellation-and-refund" element={<CancellationAndRefund />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/shipping" element={<Shipping />} />
+                {/* <Route path="/shipping" element={<Shipping />} /> */}
                 <Route path="/industry" element={<Industry />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

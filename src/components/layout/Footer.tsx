@@ -197,12 +197,12 @@ const Footer = () => {
             >
               Privacy Policy
             </Link>
-            <Link
+            {/* <Link
               to="/shipping"
               className="hover:text-primary hover:underline transition-colors"
             >
               Shipping
-            </Link>
+            </Link> */}
             <Link
               to="/terms-and-conditions"
               className="hover:text-primary hover:underline transition-colors"

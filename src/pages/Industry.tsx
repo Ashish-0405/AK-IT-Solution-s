@@ -9,6 +9,7 @@ import {
   ChevronDown,
   ChevronUp,
   Check,
+  X,
 } from "lucide-react";
 
 import Header from "@/components/layout/Header";
@@ -27,6 +28,39 @@ const CardContent = ({ children, className, ...props }) => (
     {children}
   </div>
 );
+
+const pricingPlans = {
+  Healthcare: {
+    basic: { name: "Basic", price: "₹9,999", features: ["HIPAA Compliance", "Patient Management"] },
+    advanced: { name: "Advanced", price: "₹29,999", features: ["Basic Plan Features", "Telemedicine", "EHR Integration"] },
+    premium: { name: "Premium", price: "₹49,999", features: ["Advanced Plan Features", "24/7 Support", "Custom Analytics"] },
+  },
+  "E-commerce": {
+    basic: { name: "Basic", price: "₹19,999", features: ["Mobile Commerce", "Payment Gateway"] },
+    advanced: { name: "Advanced", price: "₹49,999", features: ["Basic Plan Features", "Inventory Management", "Analytics"] },
+    premium: { name: "Premium", price: "₹89,999", features: ["Advanced Plan Features", "CRM Integration", "Advanced Reporting"] },
+  },
+  Education: {
+    basic: { name: "Basic", price: "₹10,999", features: ["LMS Integration", "Virtual Classrooms"] },
+    advanced: { name: "Advanced", price: "₹29,999", features: ["Basic Plan Features", "Student Portal", "Assessment Tools"] },
+    premium: { name: "Premium", price: "₹79,999", features: ["Advanced Plan Features", "Custom Branding", "Dedicated Support"] },
+  },
+  Finance: {
+    basic: { name: "Basic", price: "₹39,999", features: ["Payment Processing", "Risk Management"] },
+    advanced: { name: "Advanced", price: "₹69,999", features: ["Basic Plan Features", "Compliance Tools", "Mobile Banking"] },
+    premium: { name: "Premium", price: "₹99,999", features: ["Advanced Plan Features", "AI-Powered Insights", "Blockchain Integration"] },
+  },
+  "Real Estate": {
+    basic: { name: "Basic", price: "₹49,999", features: ["Property Management", "CRM Integration"] },
+    advanced: { name: "Advanced", price: "₹89,999", features: ["Basic Plan Features", "Virtual Tours", "Document Management"] },
+    premium: { name: "Premium", price: "₹1,49,000", features: ["Advanced Plan Features", "Advanced Analytics", "Marketing Automation"] },
+  },
+  "Global Services": {
+    basic: { name: "Basic", price: "₹1,04,000", features: ["Multi-language Support", "Global Infrastructure"] },
+    advanced: { name: "Advanced", price: "₹2,08,000", features: ["Basic Plan Features", "Local Compliance", "24/7 Support"] },
+    premium: { name: "Premium", price: "₹3,12,000", features: ["Advanced Plan Features", "Dedicated Account Manager", "Custom Integrations"] },
+  },
+};
 
 // Sample industries data
 const industries = [
@@ -205,11 +239,55 @@ const industries = [
   },
 ];
 
+const PricingModal = ({ industry, onClose }) => {
+  const plans = pricingPlans[industry.title];
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg shadow-xl p-8 max-w-4xl w-full relative">
+        <button onClick={onClose} className="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+          <X className="w-6 h-6" />
+        </button>
+        <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">{industry.title} Pricing</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {Object.values(plans).map((plan: any) => (
+            <div key={plan.name} className="border rounded-lg p-6 flex flex-col">
+              <h3 className="text-xl font-semibold text-center mb-4">{plan.name}</h3>
+              <p className="text-4xl font-bold text-center mb-6">{plan.price}</p>
+              <ul className="space-y-2 text-gray-600 mb-8 flex-grow">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark transition-colors">
+                Choose Plan
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Industry = () => {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [selectedIndustry, setSelectedIndustry] = useState(null);
 
   const toggleCard = (index: number) => {
     setExpandedCard(expandedCard === index ? null : index);
+  };
+
+  const openPricingModal = (industry, e) => {
+    e.stopPropagation();
+    setSelectedIndustry(industry);
+  };
+
+  const closePricingModal = () => {
+    setSelectedIndustry(null);
   };
 
   return (
@@ -246,36 +324,39 @@ const Industry = () => {
             return (
               <Card
                 key={index}
-                className={`border-2 transition-all duration-300 cursor-pointer bg-white ${
+                className={`border-2 transition-all duration-300 bg-white ${
                   isExpanded
                     ? "border-gray-300 shadow-xl md:col-span-2 lg:col-span-3"
                     : "border-gray-200 hover:border-gray-300 hover:shadow-lg"
                 }`}
-                onClick={() => toggleCard(index)}
               >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-4">
-                      <div className={`p-3 rounded-xl ${industry.color}`}>
-                        <Icon className="w-6 h-6 text-white" />
+                <div onClick={() => toggleCard(index)} className="cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-4">
+                        <div className={`p-3 rounded-xl ${industry.color}`}>
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <h2 className="text-xl font-bold text-gray-900">
+                          {industry.title}
+                        </h2>
                       </div>
-                      <h2 className="text-xl font-bold text-gray-900">
-                        {industry.title}
-                      </h2>
+                      {isExpanded ? (
+                        <ChevronUp className="w-5 h-5 text-gray-500" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-500" />
+                      )}
                     </div>
-                    {isExpanded ? (
-                      <ChevronUp className="w-5 h-5 text-gray-500" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-500" />
-                    )}
-                  </div>
 
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    {industry.description}
-                  </p>
+                    <p className="text-gray-600 leading-relaxed mb-4">
+                      {industry.description}
+                    </p>
+                  </CardContent>
+                </div>
 
-                  {isExpanded && (
-                    <div className="mt-6 space-y-6 border-t pt-6">
+                {isExpanded && (
+                  <div className="p-6 border-t">
+                    <div className="space-y-6">
                       {/* Overview */}
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -305,7 +386,7 @@ const Industry = () => {
                       </div>
 
                       {/* Technologies */}
-                      <div>
+                      {/* <div>
                         <h4 className="font-semibold text-gray-900 mb-3">
                           Technologies
                         </h4>
@@ -319,7 +400,7 @@ const Industry = () => {
                             </span>
                           ))}
                         </div>
-                      </div>
+                      </div> */}
 
                       {/* Benefits */}
                       <div>
@@ -339,20 +420,37 @@ const Industry = () => {
                         </ul>
                       </div>
                     </div>
-                  )}
+                    <div className="mt-6 text-center">
+                      <button
+                        onClick={(e) => openPricingModal(industry, e)}
+                        className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+                      >
+                        Buy Now
+                      </button>
+                    </div>
+                  </div>
+                )}
 
-                  {!isExpanded && (
-                    <div className="flex items-center text-sm text-gray-500 hover:text-gray-700 transition-colors">
+                {!isExpanded && (
+                  <div className="p-6 border-t">
+                    <div
+                      onClick={() => toggleCard(index)}
+                      className="flex items-center text-sm text-gray-500 hover:text-gray-700 transition-colors cursor-pointer"
+                    >
                       <span>Click to explore details</span>
                       <ChevronDown className="w-4 h-4 ml-1" />
                     </div>
-                  )}
-                </CardContent>
+                  </div>
+                )}
               </Card>
             );
           })}
         </div>
       </main>
+
+      {selectedIndustry && (
+        <PricingModal industry={selectedIndustry} onClose={closePricingModal} />
+      )}
 
       <Footer />
     </div>
