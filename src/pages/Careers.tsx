@@ -113,7 +113,7 @@ const Careers = () => {
       icon: Zap,
       title: "Growth & Learning",
       description:
-        "$2,000 annual learning budget for courses, conferences, and certifications.",
+        "2,000 annual learning budget for courses, conferences, and certifications.",
     },
     {
       icon: Users,
