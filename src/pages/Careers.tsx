@@ -23,7 +23,7 @@ import {
   Upload,
   CheckCircle,
 } from "lucide-react";
-import emailjs from 'emailjs-com'
+import emailjs from "emailjs-com";
 import { useState } from "react";
 import { toast } from "sonner";
 const Careers = () => {
@@ -149,83 +149,86 @@ const Careers = () => {
   const [resume, setResume] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-const uploadToCloudinary = async (file: File): Promise<string> => {
-  const cloudName = "dwioktmgr";
-  const uploadPreset = "resume";
+  const uploadToCloudinary = async (file: File): Promise<string> => {
+    const cloudName = "dwioktmgr";
+    const uploadPreset = "resume";
 
-  const formData = new FormData();
-  formData.append("file", file);
-  formData.append("upload_preset", uploadPreset);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", uploadPreset);
 
-  try {
-    console.log("Uploading to Cloudinary...", {
-      cloudName,
-      uploadPreset,
-      fileName: file.name,
-      fileSize: file.size,
-    });
+    try {
+      console.log("Uploading to Cloudinary...", {
+        cloudName,
+        uploadPreset,
+        fileName: file.name,
+        fileSize: file.size,
+      });
 
-    const response = await fetch(
-      `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload?resource_type=raw`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-
-    const data = await response.json();
-    console.log("Cloudinary response:", data);
-
-    if (!response.ok) {
-      throw new Error(
-        `Upload failed: ${data.error?.message || "Unknown error"}`
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload?resource_type=raw`,
+        {
+          method: "POST",
+          body: formData,
+        }
       );
-    } 
 
-    // ✅ Add flags parameter to force download
-    // The 'fl_attachment' flag forces download instead of preview
-    const downloadUrl = data.secure_url.replace('/upload/', '/upload/fl_attachment/');
-    
-    return downloadUrl;
-  } catch (error) {
-    console.error("Cloudinary upload error:", error);
-    throw error;
-  }
-};
+      const data = await response.json();
+      console.log("Cloudinary response:", data);
 
+      if (!response.ok) {
+        throw new Error(
+          `Upload failed: ${data.error?.message || "Unknown error"}`
+        );
+      }
 
+      // ✅ Add flags parameter to force download
+      // The 'fl_attachment' flag forces download instead of preview
+      const downloadUrl = data.secure_url.replace(
+        "/upload/",
+        "/upload/fl_attachment/"
+      );
+
+      return downloadUrl;
+    } catch (error) {
+      console.error("Cloudinary upload error:", error);
+      throw error;
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      let resumeUrl = '';
-      
+      let resumeUrl = "";
+
       if (resume) {
-        console.log('Uploading resume to Cloudinary...');
+        console.log("Uploading resume to Cloudinary...");
         resumeUrl = await uploadToCloudinary(resume);
-        console.log('Resume uploaded successfully:', resumeUrl);
+        console.log("Resume uploaded successfully:", resumeUrl);
       }
 
       const templateParams = {
         ...formData,
         resume_url: resumeUrl,
-        resume_filename: resume?.name || '',
-        has_resume: resume ? 'Yes' : 'No',
+        resume_filename: resume?.name || "",
+        has_resume: resume ? "Yes" : "No",
       };
 
-      console.log('Sending email...');
+      console.log("Sending email...");
       const response = await emailjs.send(
-        'service_r4gp5ie',
-        'template_f6eelja',
+        "service_r4gp5ie",
+        "template_f6eelja",
         templateParams,
-        '9Skjvs8fXr6vNJqTW'
+        "69kPMYeCon6qXruI_"
       );
 
-      console.log('Email sent successfully!', response.status, response.text);
-      toast.success("✅ Thanks for reaching out! We'll get back to you shortly.")
-      
+      console.log("Email sent successfully!", response.status, response.text);
+      toast.success(
+        "✅ Thanks for reaching out! We'll get back to you shortly."
+      );
+
       // Reset form
       setFormData({
         firstName: "",
@@ -236,10 +239,13 @@ const uploadToCloudinary = async (file: File): Promise<string> => {
         coverLetter: "",
       });
       setResume(null);
-      
     } catch (error) {
-      console.error('Error:', error);
-      alert(`Something went wrong: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      console.error("Error:", error);
+      alert(
+        `Something went wrong: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -248,25 +254,31 @@ const uploadToCloudinary = async (file: File): Promise<string> => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      
+
       // Validate file size (5MB limit)
       if (file.size > 5 * 1024 * 1024) {
-        alert('File size must be less than 5MB');
+        alert("File size must be less than 5MB");
         return;
       }
-      
+
       // Validate file type
-      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
       if (!allowedTypes.includes(file.type)) {
-        alert('Only PDF, DOC, and DOCX files are allowed');
+        alert("Only PDF, DOC, and DOCX files are allowed");
         return;
       }
-      
+
       setResume(file);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -314,13 +326,20 @@ const uploadToCloudinary = async (file: File): Promise<string> => {
               {benefits.map((benefit, index) => {
                 const IconComponent = benefit.icon;
                 return (
-                  <Card key={index} className="text-center border-0 bg-card/50 backdrop-blur-sm">
+                  <Card
+                    key={index}
+                    className="text-center border-0 bg-card/50 backdrop-blur-sm"
+                  >
                     <CardContent className="p-6">
                       <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
                         <IconComponent className="h-8 w-8 text-primary" />
                       </div>
-                      <h3 className="text-lg font-semibold mb-3">{benefit.title}</h3>
-                      <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                      <h3 className="text-lg font-semibold mb-3">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {benefit.description}
+                      </p>
                     </CardContent>
                   </Card>
                 );
@@ -406,11 +425,13 @@ const uploadToCloudinary = async (file: File): Promise<string> => {
                       </div>
 
                       <div className="flex flex-col justify-center">
-                        <Button 
-                          size="lg" 
+                        <Button
+                          size="lg"
                           className="w-full"
                           onClick={() => {
-                            document.getElementById('application-form')?.scrollIntoView({ behavior: 'smooth' });
+                            document
+                              .getElementById("application-form")
+                              ?.scrollIntoView({ behavior: "smooth" });
                           }}
                         >
                           Apply Now
@@ -524,30 +545,32 @@ const uploadToCloudinary = async (file: File): Promise<string> => {
                       <label className="text-sm font-medium mb-2 block">
                         Resume
                       </label>
-<div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors relative">
-  <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
-  <p className="text-sm text-muted-foreground">
-    {resume ? resume.name : "Drop your resume here or click to browse"}
-  </p>
-  <input 
-    type="file" 
-    accept=".pdf,.doc,.docx" 
-    onChange={handleFileChange}
-    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-  />
-  <p className="text-xs text-muted-foreground mt-1">
-    PDF, DOC, or DOCX (max 5MB)
-  </p>
-</div>
+                      <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-8 text-center hover:border-primary/50 transition-colors relative">
+                        <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
+                        <p className="text-sm text-muted-foreground">
+                          {resume
+                            ? resume.name
+                            : "Drop your resume here or click to browse"}
+                        </p>
+                        <input
+                          type="file"
+                          accept=".pdf,.doc,.docx"
+                          onChange={handleFileChange}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        />
+                        <p className="text-xs text-muted-foreground mt-1">
+                          PDF, DOC, or DOCX (max 5MB)
+                        </p>
+                      </div>
                     </div>
 
-                    <Button 
-                      type="submit" 
-                      className="w-full" 
+                    <Button
+                      type="submit"
+                      className="w-full"
                       size="lg"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                      {isSubmitting ? "Submitting..." : "Submit Application"}
                     </Button>
                   </form>
                 </CardContent>

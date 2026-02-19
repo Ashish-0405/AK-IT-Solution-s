@@ -17,7 +17,7 @@ const Footer = () => {
                 <img src="/AK1-version-22.svg" alt="" />{" "}
               </div>
               <span className="font-bold mb-1">
-                <span className="text-2xl">AK</span> IT Solution's
+                <span className="text-2xl">AK</span> IT Solutions
               </span>
             </div>
             <p className="text-muted-foreground text-sm">
@@ -178,12 +178,16 @@ const Footer = () => {
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-primary" />
+                <Phone className="h-4 w-4 mt-1 text-primary" />
                 <span className="text-muted-foreground">+91 90164 52340</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-primary" />
+                <Mail className="h-4 w-4 mt-1 text-primary" />
                 <span className="text-muted-foreground">sales@akitsol.com</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <img className="h-4 w-4 ml-0.5" src="/public/social-media/Vector.svg" alt="" />
+                <span className="text-muted-foreground">24CDMPN3237P1Z0</span>
               </div>
             </div>
           </div>
@@ -217,7 +221,7 @@ const Footer = () => {
             </Link>
           </div>
           <p className="mt-4">
-            &copy; 2020 AK IT Solution's. All rights reserved.
+            &copy; 2026 AK IT Solutions. All rights reserved.
           </p>
         </div>
       </div>

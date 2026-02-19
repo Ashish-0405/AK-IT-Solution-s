@@ -49,7 +49,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <div className="h-24 w-24 rounded max-sm:h-16 max-sm:w-16"><img src="/AK1-version-22.svg" alt="" /></div>
-            <span className="text-l font-semibold max-sm:text-sm"><span className="font-bold text-xl max-sm:text-lg">AK</span> IT Solution's</span>
+            <span className="text-l font-semibold max-sm:text-sm"><span className="font-bold text-xl max-sm:text-lg">AK</span> IT Solutions</span>
           </Link>
 
           {/* Desktop Navigation */}

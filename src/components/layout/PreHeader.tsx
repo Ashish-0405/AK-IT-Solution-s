@@ -2,7 +2,7 @@ import { Mail, Phone } from "lucide-react";
 
 const PreHeader = () => {
   const items = [
-    "Welcome to AK IT Solution's",
+    "Welcome to AK IT Solutions",
     "Your Trusted Partner for Innovative IT Solutions",
     "Contact us for a free consultation!",
     "Expert Web & Mobile App Development",

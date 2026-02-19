@@ -54,7 +54,7 @@ const PrivacyPolicy: React.FC = () => {
               <section id="introduction">
                 <h2 className="text-2xl font-bold text-primary mb-4">Introduction</h2>
                 <p className="text-muted-foreground">
-                  Welcome to AK IT Solution's ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
+                  Welcome to AK IT Solutions ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
                 </p>
                 <p className="text-muted-foreground mt-4">
                   By using our services, you agree to the collection and use of information in accordance with this policy. If you do not agree with the terms of this privacy policy, please do not access the site.
@@ -128,7 +128,7 @@ const PrivacyPolicy: React.FC = () => {
                 <p className="text-muted-foreground">
                   If you have questions or comments about this Privacy Policy, please contact us at:
                 </p>
-                <p className="font-semibold text-muted-foreground mt-4">AK IT Solution's</p>
+                <p className="font-semibold text-muted-foreground mt-4">AK IT Solutions</p>
                 <p className="text-muted-foreground">
                   Email: <a href="mailto:sales@akitsol.com" className="text-primary hover:underline">sales@akitsol.com</a>
                 </p>

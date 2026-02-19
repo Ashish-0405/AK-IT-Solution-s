@@ -387,7 +387,7 @@ const NewPortfolio = () => {
             >
               {category}
             </Button>
-          ))}\
+          ))}
         </div>
 
         <motion.div
