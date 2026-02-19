@@ -3,6 +3,7 @@ import {
   Mail,
   Phone,
   MapPin,
+  ReceiptIndianRupee
 } from "lucide-react";
 
 const Footer = () => {
@@ -186,7 +187,7 @@ const Footer = () => {
                 <span className="text-muted-foreground">sales@akitsol.com</span>
               </div>
               <div className="flex items-center space-x-2">
-                <img className="h-4 w-4 ml-0.5" src="/public/social-media/Vector.svg" alt="" />
+                 <ReceiptIndianRupee className="h-4 w-4 mt-0.5 text-primary" />
                 <span className="text-muted-foreground">24CDMPN3237P1Z0</span>
               </div>
             </div>
