@@ -1,16 +1,18 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-
-  RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [NC]
-  RewriteRule .* - [L]
-</IfModule>
-
-<IfModule mod_rewrite.c>
-  RewriteEngine On
   RewriteBase /
+
+  # Allow Facebook crawler
+  RewriteCond %{HTTP_USER_AGENT} facebookexternalhit [NC,OR]
+  RewriteCond %{HTTP_USER_AGENT} Facebot [NC]
+  RewriteRule .* - [L]
+
+  # React/Vite SPA routing
   RewriteRule ^index\.html$ - [L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
+
   RewriteRule . /index.html [L]
 </IfModule>
